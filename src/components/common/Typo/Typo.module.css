@@ -36,11 +36,11 @@
 /* Colors */
 
 .dark {
-  color: var(--color-text);
+  color: var(--color-snow-white);
 }
 
 .light {
-  color: var(--color-background);
+  color: var(--color-midnight-green);
 }
 
 .primary {

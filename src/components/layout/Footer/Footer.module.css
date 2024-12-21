@@ -43,7 +43,7 @@
 .content {
   align-items: center;
   /* Same as .dark */
-  color: var(--color-text);
+  color: var(--color-snow-white);
   display: flex;
   flex-direction: column;
   flex-grow: 1;

@@ -1,90 +1,64 @@
-import { FunctionComponent, HTMLAttributes, useMemo } from 'react';
-import Image from 'next/image';
+import { FunctionComponent, HTMLAttributes } from 'react';
 import Link from '../common/Link';
+import LogotypeHorizontalClearImage from './components/HorizontalClearImage';
+import LogotypeSquareClearImage from './components/SquareClearImage';
+import LogotypeHorizontalRoundedImage from './components/HorizontalRoundedImage';
+import LogotypeSquareRoundedImage from './components/SquareRoundedImage';
 import styles from './Logo.module.css';
-
-type LogoSize = 'small' | 'medium' | 'large';
-type LogoVariant = 'default' | 'light' | 'dark';
-
-const VARIANT_TO_SRC: Record<LogoVariant, string> = {
-  default: '/img/logo/logo-256.png',
-  light: '/img/logo/logo-256.png',
-  dark: '/img/logo/logo-256.png',
-};
-
-const SIZE_TO_PROPS: Record<LogoSize, object> = {
-  small: { width: 64, height: 64 },
-  medium: { width: 96, height: 96 },
-  large: { width: 128, height: 128 },
-};
 
 interface Props extends HTMLAttributes<HTMLDivElement | HTMLAnchorElement> {
   href?: string;
-  noText?: boolean;
-  size?: LogoSize;
-  variant?: LogoVariant;
+  variant: 'horizontal' | 'square';
+  width?: number | string;
+  hasBackground?: boolean;
 }
 
 /**
- * Renders the Logo in desired size, colors and so on
+ * Renders the Logo in desired size, effect and so on
  * @component Logo
- * @param {string} [href] - optional link to navigate to when clicking on the logo.
- * @param {boolean} [noText] - optional flag to hide the text part of the logo.
- * @param {LogoSize} [size] - The size of the logo: 'small' | 'medium' | 'large'. Defaults to 'medium'.
- * @param {LogoVariant} [variant] - The variant of the logo: 'default' | 'light' | 'dark'. Defaults to 'default'.
+ * @param {string} [className] - optional class name to add to the logo
+ * @param {string} [href] - optional link to navigate to when clicking on the logo
+ * @param {string} [variant] - variant of the logo,  defaults to 'horizontal'
+ * @param {number | string} [width] - width of the logo
+ * @param {boolean} [hasBackground] - whether the logo should have rounded background
  */
-const Logo: FunctionComponent<Props> = ({ href, noText, size = 'medium', variant = 'default', ...restOfProps }) => {
-  const imageToRender = useMemo(() => {
-    const propsToRender = SIZE_TO_PROPS[size] ?? SIZE_TO_PROPS.medium ?? {};
-    const imageSource = VARIANT_TO_SRC[variant] ?? VARIANT_TO_SRC.default;
-    const classImage = [styles.image, styles[size]].filter(Boolean).join(' ');
-    return (
-      <Image
-        alt="Logo"
-        className={classImage}
-        loading="eager" // Load immediately
-        src={imageSource}
-        {...propsToRender}
-      />
-    );
-  }, [variant, size]);
+const Logo: FunctionComponent<Props> = ({
+  className: customClassName,
+  href,
+  hasBackground = false,
+  variant = 'horizontal',
+  width,
+  ...restOfProps
+}) => {
+  const LogoToRender = hasBackground
+    ? variant === 'horizontal'
+      ? LogotypeHorizontalRoundedImage
+      : LogotypeSquareRoundedImage
+    : variant === 'horizontal'
+      ? LogotypeHorizontalClearImage
+      : LogotypeSquareClearImage;
 
-  const textToRender = useMemo(
-    () =>
-      // TODO: Add real text here
-      noText ? null : (
-        <div className={`${styles.text} ${styles[size]}`}>
-          <span className={styles.primary}>Logo</span>
-          Type
-        </div>
-      ),
-    [noText, size]
+  const contentToRender = (
+    <LogoToRender
+      height={undefined /* This resets hardcoded height in SVG */}
+      width={width ?? 128 /* Default width must be applied */}
+    />
   );
 
-  const contentToRender = useMemo(
-    () => (
-      <div className={styles.container}>
-        {imageToRender}
-        {textToRender}
-      </div>
-    ),
-    [imageToRender, textToRender]
-  );
-
-  const currentClassName = [styles.logo, styles[size]].filter(Boolean).join(' ');
+  const className = [styles.logo, hasBackground && styles.hasBackground, customClassName].filter(Boolean).join(' ');
 
   if (href) {
-    // Render logo as link
+    // Render logo as a Link
     return (
-      <Link className={currentClassName} href={href} {...restOfProps}>
+      <Link className={className} href={href} {...restOfProps}>
         {contentToRender}
       </Link>
     );
   }
 
-  // Render logo as div
+  // Render logo as a Div
   return (
-    <div className={currentClassName} {...restOfProps}>
+    <div className={className} {...restOfProps}>
       {contentToRender}
     </div>
   );

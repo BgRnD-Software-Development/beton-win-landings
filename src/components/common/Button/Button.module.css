@@ -42,13 +42,13 @@
 
 /* Variant "contained"  */
 .contained {
-  border: solid 0.125rem color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
+  border: solid 0.125rem color-mix(in srgb, var(--color-primary) 10%, var(--color-midnight-green));
   background-color: var(--color-primary);
-  color: var(--color-background);
+  color: var(--color-midnight-green);
   text-decoration: none;
 }
 .contained:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 80%, var(--color-background));
+  background-color: color-mix(in srgb, var(--color-primary) 80%, var(--color-midnight-green));
 }
 .contained:disabled {
   background-color: var(--color-primary);
@@ -63,7 +63,7 @@
 }
 .outlined:disabled,
 .outlined:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 20%, var(--color-background));
+  background-color: color-mix(in srgb, var(--color-primary) 20%, var(--color-midnight-green));
 }
 
 /* Variant "text" */
@@ -74,10 +74,10 @@
   padding: 0.125rem 0.5rem;
 }
 .text:disabled {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
+  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-midnight-green));
 }
 .text:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
+  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-midnight-green));
   /* text-decoration: underline; */
 }
 
@@ -90,5 +90,5 @@
 }
 .icon:disabled,
 .icon:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
+  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-midnight-green));
 }

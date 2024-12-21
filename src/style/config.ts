@@ -3,8 +3,9 @@
 
 import { COLORS } from './colors';
 
-export const MOBILE_SCREEN_MAX_WIDTH = 800; // 640
 export const SERVER_SIDE_MOBILE_FIRST = true; // true - for mobile, false - for desktop
+export const MOBILE_SCREEN_MAX_WIDTH = 800; // 640
+export const CONTENT_MAX_WIDTH = 1440;
 
 /**
  * Button component
