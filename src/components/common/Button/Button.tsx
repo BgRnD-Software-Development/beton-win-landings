@@ -65,7 +65,7 @@ const Button: FunctionComponent<ButtonProps> = ({
   );
 
   const classToRender = useMemo(
-    () => [FONTS.poppins.className, styles.button, styles[variant], className].filter(Boolean).join(' '),
+    () => [FONTS.prompt.className, styles.button, styles[variant], className].filter(Boolean).join(' '),
     [className, variant]
   );
 

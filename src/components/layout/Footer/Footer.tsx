@@ -27,7 +27,7 @@ const Footer = () => {
   return (
     <footer className={className} id="footer">
       <div className={styles.logo}>
-        <Logo href="/" noText={logoTextHidden} size="small" />
+        <Logo href="/" size="small" />
         {isMobile && (
           // Mobile version of the footer, no copyright
           <span className={styles.text}>

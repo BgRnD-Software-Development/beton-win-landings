@@ -35,8 +35,8 @@ export function getFontByVariant(variant: TypoVariant): string {
     case 'header1':
     case 'header2':
     case 'header3':
-      return FONTS.poppins.className;
+      return FONTS.prompt.className;
     default:
-      return FONTS.inter.className;
+      return FONTS.ibm.className;
   }
 }
