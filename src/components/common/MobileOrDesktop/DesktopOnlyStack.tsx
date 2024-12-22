@@ -1,7 +1,7 @@
 'use client';
 import { FunctionComponent } from 'react';
 import { useIsMobile } from '@/hooks';
-import Stack, { StackProps } from './Stack';
+import Stack, { StackProps } from '../Stack/Stack';
 
 /**
  * Renders a "Stack with Children" on Desktop and just returns children on Mobile
