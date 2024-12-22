@@ -11,5 +11,7 @@ export const PUBLIC_URL = process.env.NEXT_PUBLIC_PUBLIC_URL ?? 'http://localhos
 export const APP_NAME = 'Beton.win';
 export const APP_SHORT_NAME = 'BetOnWin';
 
+export const EXTERNAL_LINK_BETONWIN = 'https://beton.win';
 export const EXTERNAL_LINK_PRIVACY_POLICY = 'https://beton.win/legal/privacy-policy/';
 export const EXTERNAL_LINK_TERMS_CONDITIONS = 'https://beton.win/legal/terms-conditions/';
+export const EXTERNAL_LINK_EMAIL = 'mailto:servicio-al-cliente@beton.win';

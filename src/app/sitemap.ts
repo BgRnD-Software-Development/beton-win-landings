@@ -28,18 +28,18 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.3,
     },
-    {
-      url: `${PUBLIC_URL}/legal/privacy-policy/`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${PUBLIC_URL}/legal/terms-conditions/`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
+    // {
+    //   url: `${PUBLIC_URL}/legal/privacy-policy/`,
+    //   lastModified,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.5,
+    // },
+    // {
+    //   url: `${PUBLIC_URL}/legal/terms-conditions/`,
+    //   lastModified,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.5,
+    // },
     // {
     //   url: `${PUBLIC_URL}/legal/software-license/`,
     //   lastModified,

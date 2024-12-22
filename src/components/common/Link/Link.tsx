@@ -46,6 +46,8 @@ const Link: FunctionComponent<LinkProps> = ({
     [href]
   );
 
+  console.log('Link', { href, pathname, isActive, isExternal });
+
   const linkClassName = useMemo(
     () => [className, isActive && activeClassName].filter(Boolean).join(' ') || undefined,
     [className, activeClassName, isActive]

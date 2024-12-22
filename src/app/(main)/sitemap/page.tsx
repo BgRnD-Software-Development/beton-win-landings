@@ -1,4 +1,4 @@
-import { APP_NAME, PUBLIC_URL } from '@/config';
+import { APP_NAME, EXTERNAL_LINK_PRIVACY_POLICY, EXTERNAL_LINK_TERMS_CONDITIONS, PUBLIC_URL } from '@/config';
 import { Link, Typo, Wrapper } from '@/components';
 
 /**
@@ -6,10 +6,6 @@ import { Link, Typo, Wrapper } from '@/components';
  * @page Sitemap
  */
 const SitemapPage = async () => {
-  // const articles: LinkData[] = (await getArticleList()).map((current) => {
-  //   return { url: articleToUrl(current), title: articleToTitle(current) };
-  // });
-
   return (
     <Wrapper htmlTag="article">
       <Typo variant="header1">Sitemap</Typo>
@@ -21,10 +17,10 @@ const SitemapPage = async () => {
           <Link href="/legal/">Legal</Link>
           <Typo variant="list">
             <li>
-              <Link href="/legal/terms-conditions/">Terms and Conditions</Link>
+              <Link href={EXTERNAL_LINK_TERMS_CONDITIONS}>Terms and Conditions</Link>
             </li>
             <li>
-              <Link href="/legal/privacy-policy/">Privacy Policy</Link>
+              <Link href={EXTERNAL_LINK_PRIVACY_POLICY}>Privacy Policy</Link>
             </li>
           </Typo>
         </li>
@@ -33,10 +29,6 @@ const SitemapPage = async () => {
         </li>
         <li>
           <Link href="/contact/">Contact</Link>
-        </li>
-        {/* Unstyled pages: */}
-        <li>
-          <Link href="/simple-page/">Unstyled Page Example</Link>
         </li>
       </Typo>
     </Wrapper>

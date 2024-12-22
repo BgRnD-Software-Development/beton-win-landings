@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import Analytics from '@/components/tooling/Analytics';
-import './unstyled.css';
 import StylesInjector from '../../components/tooling/StylesInjector';
+import './unstyled.css';
 
 /**
  * Layout for (unstyled) pages, renders head and body tags

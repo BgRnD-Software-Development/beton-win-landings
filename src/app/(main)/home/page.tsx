@@ -68,21 +68,6 @@ const HomePage = () => {
           <Icon key={icon} icon={icon as IconName} size="2rem" />
         ))}
       </Stack>
-
-      <Typo variant="header2">Picture</Typo>
-      <Stack alignItems="center" padding="1rem 0">
-        <Picture variant="first" width={600} height={315} />
-        <Picture src="/img/favicon/256x256.png" width={256} height={256} />
-        <Picture variant="second" />
-      </Stack>
-
-      <Typo variant="header1">Video</Typo>
-      <Stack alignItems="center" padding="1rem 0">
-        <Video video="demo" />
-      </Stack>
-
-      <Typo variant="header1">Social Media</Typo>
-      <SocialMedia variant="full" />
     </Wrapper>
   );
 };

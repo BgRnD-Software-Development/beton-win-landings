@@ -11,7 +11,7 @@ const ContactPage = () => {
   return (
     <Wrapper htmlTag="article">
       <BlockContactForm />
-      <BlockSocialMedia />
+      {/* <BlockSocialMedia /> */}
     </Wrapper>
   );
 };
