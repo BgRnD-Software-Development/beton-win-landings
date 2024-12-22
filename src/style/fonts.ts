@@ -6,8 +6,8 @@ import { IBM_Plex_Sans_Condensed, Prompt } from 'next/font/google';
 // Font 1
 const fontPrompt = Prompt({
   display: 'swap',
-  subsets: ['latin'],
   style: 'italic',
+  subsets: ['latin'],
   variable: '--font-prompt', // This set a CSS variable for the font, so we don't need to set it manually in the Main layout
   weight: ['600'],
 });
@@ -15,8 +15,8 @@ const fontPrompt = Prompt({
 // Font 2
 const fontIbm = IBM_Plex_Sans_Condensed({
   display: 'swap',
-  subsets: ['latin'],
   style: 'italic',
+  subsets: ['latin'],
   variable: '--font-ibm', // This set a CSS variable for the font, so we don't need to set it manually in the Main layout
   weight: ['700'],
 });

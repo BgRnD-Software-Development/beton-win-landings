@@ -1,11 +1,5 @@
 import { APP_NAME, PUBLIC_URL } from '@/config';
 import { Link, Typo, Wrapper } from '@/components';
-// import { articleToTitle, articleToUrl, getArticleList } from '../article/utils';
-
-// interface LinkData {
-//   url: string;
-//   title: string;
-// }
 
 /**
  * Content of the "Sitemap" page. This is page is not `sitemap.xml`, but a page for humans.
@@ -40,23 +34,6 @@ const SitemapPage = async () => {
         <li>
           <Link href="/contact/">Contact</Link>
         </li>
-        <li>
-          <Link href="/download/">Download</Link>
-        </li>
-
-        {/* <li>
-          <Link href="/articles/">Articles</Link>
-          <Typo variant="list">
-            {articles.map(({ title, url }) => {
-              return (
-                <li key={url}>
-                  <Link href={url}>{title}</Link>
-                </li>
-              );
-            })}
-          </Typo>
-        </li> */}
-
         {/* Unstyled pages: */}
         <li>
           <Link href="/simple-page/">Unstyled Page Example</Link>
