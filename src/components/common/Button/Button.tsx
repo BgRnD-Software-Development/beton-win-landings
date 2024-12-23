@@ -1,28 +1,15 @@
 'use client';
 import { FunctionComponent, PropsWithChildren, useCallback, useMemo, KeyboardEvent, ButtonHTMLAttributes } from 'react';
-import {
-  BUTTON_ICON_SIZE,
-  BUTTON_MARGIN,
-  BUTTON_VARIANT,
-  FONTS,
-  ICON_COLOR_INVERTED,
-  ICON_COLOR_NORMAL,
-} from '@/style';
-import Icon, { IconName } from '../../Icon';
 import Link from '../Link';
-import Stack from '../Stack';
 import styles from './Button.module.css';
 
-export type ButtonVariant = 'contained' | 'outlined' | 'text' | 'icon';
+export type ButtonVariant = 'purple';
+export type ButtonSize = 'medium' | 'large';
 
 export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>> {
   activeClassName?: string;
   href?: string;
-  icon?: IconName;
-  iconLeft?: IconName;
-  iconRight?: IconName;
-  margin?: string | number;
-  spinIcon?: boolean;
+  size?: ButtonSize;
   variant?: ButtonVariant;
 }
 
@@ -31,25 +18,16 @@ export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTML
  * @component Button
  * @param {string} [activeClassName] - optional class name to apply when button is a link and current page matches .href
  * @param {string} [href] - optional href, if provided, button will be rendered as <a> tag
- * @param {string} [icon] - optional icon to render on the button
- * @param {string} [iconLeft] - optional icon to render on the left side of the button
- * @param {string} [iconRight] - optional icon to render on the right side of the button
- * @param {string | number} [margin] - optional margin to apply to the button, defaults to BUTTON_MARGIN config
- * @param {boolean} [spinIcon] - optional flag to spin the icon infinitely (loading, submitting, etc.)
  * @param {ButtonVariant} [variant] - variant of the button, defaults to "contained" via BUTTON_VARIANT config
  */
 const Button: FunctionComponent<ButtonProps> = ({
   activeClassName,
   className,
   children,
+  disabled,
   href,
-  icon,
-  iconLeft = icon, // Use .icon as default value for .iconLeft
-  iconRight,
-  margin = BUTTON_MARGIN,
-  style,
-  spinIcon = false,
-  variant = BUTTON_VARIANT,
+  size = 'medium',
+  variant = 'purple',
   onKeyDown,
   ...restOfProps
 }) => {
@@ -65,47 +43,29 @@ const Button: FunctionComponent<ButtonProps> = ({
   );
 
   const classToRender = useMemo(
-    () => [FONTS.prompt.className, styles.button, styles[variant], className].filter(Boolean).join(' '),
+    () => [styles.button, styles[size], styles[variant], className].filter(Boolean).join(' '),
     [className, variant]
   );
 
-  const styleToRender = useMemo(() => ({ ...style, margin: margin }), [margin, style]);
-
   const buttonContent = useMemo(() => {
-    if (!iconLeft && !iconRight) {
-      return children; // No icons, just render children
-    }
-    const iconColor = variant === 'contained' ? ICON_COLOR_INVERTED : ICON_COLOR_NORMAL;
-    return (
-      <Stack direction="row" justifyContent="center" alignItems="center" gap="0.5rem">
-        {iconLeft && (
-          <Icon
-            color={iconColor}
-            className={spinIcon ? styles.spinner : undefined}
-            icon={iconLeft}
-            size={BUTTON_ICON_SIZE}
-          ></Icon>
-        )}
-        {children && <div>{children}</div>}
-        {iconRight && (
-          <Icon
-            color={iconColor}
-            className={spinIcon ? styles.spinner : undefined}
-            icon={iconRight}
-            size={BUTTON_ICON_SIZE}
-          ></Icon>
-        )}
-      </Stack>
-    );
-  }, [children, iconLeft, iconRight, spinIcon, variant]);
+    // if (!children) {
+    //   return null; // Nothing to render
+    // }
 
-  if (href) {
+    // if (!['string', 'number', 'boolean'].includes(typeof children)) {
+    //   return children; // No need to wrap children into some Typography
+    // }
+
+    return <div className={styles.buttonContent}>{children}</div>;
+  }, [children, size]);
+
+  // Render as <a> tag if .href is provided, but only if button is not disabled
+  if (href && !disabled) {
     return (
       <Link
         activeClassName={activeClassName}
         className={classToRender}
         href={href}
-        style={styleToRender}
         {...restOfProps}
         onKeyDown={handleKeyDown}
       >
@@ -114,8 +74,9 @@ const Button: FunctionComponent<ButtonProps> = ({
     );
   }
 
+  // Render as <button> tag
   return (
-    <button className={classToRender} style={styleToRender} {...restOfProps} onKeyDown={handleKeyDown}>
+    <button className={classToRender} disabled={disabled} {...restOfProps} onKeyDown={handleKeyDown}>
       {buttonContent}
     </button>
   );

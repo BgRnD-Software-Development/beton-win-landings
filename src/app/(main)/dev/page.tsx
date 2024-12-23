@@ -1,9 +1,9 @@
 'use client';
-import { useMemo } from 'react';
 import { redirect } from 'next/navigation';
-import { Typo, Wrapper } from '@/components';
+import { Wrapper } from '@/components';
 import { IS_DEBUG } from '@/config';
 import LogoDemo from './LogoDemo';
+import ButtonDemo from './ButtonDemo';
 
 /**
  * Renders a "DevTools" page that is only available in development mode (IS_DEBUG == true)
@@ -18,8 +18,7 @@ const DevToolsPage = () => {
   return (
     <Wrapper>
       <LogoDemo />
-
-      {/* <ButtonDemo /> */}
+      <ButtonDemo />
       {/* <TypoDemo /> */}
     </Wrapper>
   );

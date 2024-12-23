@@ -5,7 +5,6 @@ import { OPEN_GRAPH_DEFAULT } from '@/app/config';
 import { COLORS, FONTS } from '@/style';
 import Analytics from '@/components/tooling/Analytics';
 import Advertising from '@/components/tooling/Advertising';
-import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import StylesInjector from '@/components/tooling/StylesInjector';
 import './main.css';
@@ -38,13 +37,9 @@ const MainLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
       </head>
 
       <body className={FONTS.default.className}>
-        <Header />
+        {/* <Header /> */}
         <div className="content">{children}</div>
         <Footer />
-
-        {/* <MobileOrDesktop
-        // TODO: Remove this injector if you don't use .isMobile and .isDesktop classes in your CSS styles
-        /> */}
       </body>
     </>
   );

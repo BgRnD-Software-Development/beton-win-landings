@@ -62,7 +62,7 @@ const ContactForm = () => {
     }
   };
 
-  const iconButton = isSubmitting ? 'spinner' : undefined;
+  // const iconButton = isSubmitting ? 'spinner' : undefined;
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
@@ -75,7 +75,7 @@ const ContactForm = () => {
       <div className={styles.actions}>
         {emailSent && <div className={styles.success}>Your message sent successfully</div>}
         {error && <div className={styles.error}>Error: {error}</div>}
-        <Button disabled={isSubmitting} icon={iconButton} spinIcon={true} type="submit" variant="contained">
+        <Button disabled={isSubmitting} type="submit" variant="purple">
           {isSubmitting ? 'Sending' : 'Send'}
         </Button>
       </div>
