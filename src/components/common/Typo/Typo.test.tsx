@@ -58,31 +58,28 @@ describe('<Typo/> component', () => {
     }
   });
 
-  it('supports .variant property', () => {
+  it('supports .size property', () => {
     let text, element, testId;
 
-    text = 'property .variant is not set (default)';
+    text = 'property .size is not set (default)';
     testId = randomText(8);
     render(<ComponentToTest data-testid={testId}>{text}</ComponentToTest>);
     element = screen.getByTestId(testId);
     expect(element).toBeDefined();
     expect(element.tagName.toLowerCase()).toBe('span');
 
-    const variantsToVerify: TypoProps['variant'][] = ['header1', 'header2', 'header3', 'paragraph', 'list', 'text'];
-    const tagsToVerify = ['h1', 'h2', 'h3', 'p', 'ul', 'span'];
-    for (let i = 0; i < variantsToVerify.length; i++) {
-      const variant = variantsToVerify[i];
-      const tag = tagsToVerify[i];
-      text = `property .variant is ${variant}`;
+    const sizeToVerify: TypoProps['size'][] = ['small', 'medium', 'large', '2rem', '42px', '3em'];
+    for (let i = 0; i < sizeToVerify.length; i++) {
+      const size = sizeToVerify[i];
+      text = `property .variant is ${size}`;
       testId = randomText(8);
       render(
-        <ComponentToTest data-testid={testId} variant={variant}>
+        <ComponentToTest data-testid={testId} size={size}>
           {text}
         </ComponentToTest>
       );
       element = screen.getByTestId(testId);
       expect(element).toBeDefined();
-      expect(element.tagName.toLowerCase()).toBe(tag);
     }
   });
 });

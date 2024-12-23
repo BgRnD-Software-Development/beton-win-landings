@@ -3,6 +3,8 @@
  */
 export const COLORS = {
   'gray-text': '#3E3E3E',
+  'dark-text': '#092D34',
+
   // Brand Book colors
   'midnight-green': '#02252d',
   'dark-slate-gray': '#1f5254',

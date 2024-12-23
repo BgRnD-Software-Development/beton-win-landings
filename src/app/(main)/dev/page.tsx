@@ -4,6 +4,7 @@ import { Wrapper } from '@/components';
 import { IS_DEBUG } from '@/config';
 import LogoDemo from './LogoDemo';
 import ButtonDemo from './ButtonDemo';
+import TypoDemo from './TypoDemo';
 
 /**
  * Renders a "DevTools" page that is only available in development mode (IS_DEBUG == true)
@@ -19,7 +20,7 @@ const DevToolsPage = () => {
     <Wrapper>
       <LogoDemo />
       <ButtonDemo />
-      {/* <TypoDemo /> */}
+      <TypoDemo />
     </Wrapper>
   );
 };

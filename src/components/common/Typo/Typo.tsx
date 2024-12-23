@@ -1,10 +1,12 @@
-'use client';
 import { FunctionComponent, HTMLAttributes, PropsWithChildren, ReactNode, useMemo } from 'react';
-import { useIsMobile } from '@/hooks/layout';
 import HtmlTag from '../HtmlTag';
-import { TypoAlign, TypoColor, TypoVariant } from './types';
-import { getFontByVariant, getTagByVariant } from './utlils';
 import styles from './Typo.module.css';
+import { FONTS } from '../../../style';
+
+export type TypoAlign = 'center' | 'left' | 'right' | 'justify';
+export type TypoColor = 'white' | 'yellow' | 'dark';
+export type TypoFont = 'prompt' | 'ibm';
+export type TypoSize = 'small' | 'medium' | 'large';
 
 export interface TypoProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
   align?: TypoAlign;
@@ -12,9 +14,10 @@ export interface TypoProps extends PropsWithChildren<HTMLAttributes<HTMLElement>
   capitalize?: boolean;
   className?: string;
   children: ReactNode;
-  color?: TypoColor;
+  color?: TypoColor | string;
+  font?: TypoFont;
   htmlTag?: keyof JSX.IntrinsicElements;
-  variant?: TypoVariant;
+  size?: TypoSize | string;
   underline?: boolean;
   uppercase?: boolean;
 }
@@ -26,8 +29,9 @@ export interface TypoProps extends PropsWithChildren<HTMLAttributes<HTMLElement>
  * @param {boolean} [bold] - whether to render bold text or not
  * @param {boolean} [capitalize] - whether to render capitalize text or not
  * @param {TypoColor} [color] - color to render, defaults to 'dark'
- * @param {string} [tag] - HTML tag to render, defaults to 'span'
- * @param {string} [variant] - variant to render, defaults to 'text'
+ * @param {TypoFont} [font] - font to render, defaults to 'prompt'
+ * @param {string} [htmlTag] - HTML tag to render, defaults to 'span'
+ * @param {TypoSize} [size] - size of the text, defaults to 'medium'
  * @param {boolean} [underline] - whether to render underline text or not
  * @param {boolean} [uppercase] - whether to render uppercase text or not
  */
@@ -37,40 +41,34 @@ const Typo: FunctionComponent<TypoProps> = ({
   capitalize,
   children,
   className,
-  color = 'dark',
+  color = 'white',
+  font = 'prompt',
+  size = 'medium',
   style,
-  variant = 'text',
-  htmlTag = getTagByVariant(variant), // Must be defined after .variant property!!!
+  htmlTag = 'span',
   underline,
   uppercase,
   ...restOfProps
 }) => {
-  const isMobile = useIsMobile();
+  const classToRender = [
+    FONTS[font].className,
+    styles[color],
+    styles[size],
+    styles[align],
+    bold && styles.bold,
+    capitalize && styles.capitalize,
+    underline && styles.underline,
+    uppercase && styles.uppercase,
+    className, // Custom class must be the last one
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  const classToRender = useMemo((): string | undefined => {
-    const resultAsArray = [
-      isMobile ? styles.mobile : styles.desktop,
-      getFontByVariant(variant),
-      styles[variant],
-      styles[color],
-      align && styles[align],
-      bold && styles.bold,
-      capitalize && styles.capitalize,
-      underline && styles.underline,
-      uppercase && styles.uppercase,
-      className,
-    ];
-    const resultAsString: string = resultAsArray.filter(Boolean).join(' ');
-    return Boolean(resultAsString) ? resultAsString : undefined;
-  }, [align, bold, color, capitalize, className, isMobile, variant, underline, uppercase]);
-
-  const styleToRender = useMemo(
-    () => ({
-      ...(!styles?.[color] && { color }), // if exact color is not defined in stylesShared, pass the color as style
-      ...style,
-    }),
-    [color, style]
-  );
+  const styleToRender = {
+    ...(!styles?.[color] && { color: color }), // if exact color is not defined in CSS, pass the color as a string
+    ...(!styles?.[size] && { fontSize: size }), // if exact size is not defined in CSS, pass the size as fontSize
+    ...style,
+  };
 
   return (
     <HtmlTag className={classToRender} style={styleToRender} tag={htmlTag} {...restOfProps}>
