@@ -139,7 +139,7 @@
 /* Other classes, must be defined last */
 .activeLink {
   /* LOL, there is a bug with class order in React Modules, so we use !important :) */
-  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background)) !important;
+  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-midnight-green)) !important;
 }
 
 .spacer {

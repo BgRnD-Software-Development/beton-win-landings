@@ -4,4 +4,5 @@ import Link from './Link';
 import Stack from './Stack';
 import Typo from './Typo';
 
+export * from './MobileOrDesktop';
 export { Button, HtmlTag, Link, Stack, Typo };

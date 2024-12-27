@@ -1,17 +1,8 @@
-# Public Website Template - Built with NextJS
+# Landings for Beton.win
 
-Mix of [Create Next App](https://nextjs.org/docs/pages/api-reference/create-next-app) (App Router) with set of reusable components and utilities to build professional SEO friendly websites.
+Made with Next.js (App Router) 15+, React 19+, TypeScript.
 
-## How to use
-
-1. Clone the repository
-2. Run `npm i` to install all dependencies
-3. Copy `.env.example` to `.env` or `.env.local` and set all required environment variables
-4. Find all `TODO:` in the code and follow the instructions
-5. Run `npm run dev` to start the development server
-6. Add your own pages to the `/src/app` folder
-7. Run `npm run build` to build the application into `out` folder
-8. Host the content of the `out` folder anywhere you want.
+Based on [UMKA's Next.js Template](https://github.com/umka-co/nextjs-website-starter)
 
 ## Available Scripts
 
@@ -31,7 +22,7 @@ Checks the code for errors and missing things
 
 ### `npm run format`
 
-Formats the code according to `./prettierrc.js` config
+Formats the code according to `./prettier.config.js` config
 
 ### `npm test`
 

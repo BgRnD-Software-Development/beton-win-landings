@@ -1,20 +1,20 @@
 .button {
-  cursor: pointer;
-  border-radius: 999rem;
-  padding: 1.5rem 2.5rem;
-
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.75rem;
-
-  display: inline-flex;
-  white-space: nowrap;
   align-items: center;
+  border: none;
+  border-radius: 999rem;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-prompt);
+  font-style: italic;
+  font-weight: 600;
   justify-content: center;
-
-  transition: background-color 0.3s;
-
-  text-transform: capitalize;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  margin: 0.5rem;
+  padding: 0.125rem;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  white-space: nowrap;
 }
 .button:disabled {
   cursor: not-allowed;
@@ -24,71 +24,59 @@
   text-decoration: none;
 }
 
-/* "Spinning Icon" animation */
-.spinner {
-  animation: spin infinite 5s linear;
-  /* You can increase or decrease the timer (5s) to 
-   increase or decrease the speed of the spinner */
+.buttonContent {
+  padding: 0.25rem 1rem;
+  border-radius: 999rem;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+/* Variant "purple"  */
+.purple {
+  --color-gradient-a: #9c60ef;
+  --color-gradient-b: #740ce6;
+
+  background: linear-gradient(0deg, var(--color-gradient-b) 40%, var(--color-gradient-a));
+  color: var(--color-show-white);
+}
+.purple:hover {
+  filter: brightness(115%);
+}
+.purple .buttonContent {
+  background: linear-gradient(0deg, var(--color-gradient-a) 40%, var(--color-gradient-b));
+}
+
+/* Classes for .size property */
+.medium.button {
+  padding: 0.125rem; /* 2px */
+}
+.medium .buttonContent {
+  font-size: 0.875rem;
+  padding: 0.5rem 1.25rem;
+}
+
+.large.button {
+  padding: 0.188rem; /* 3px */
+}
+.large .buttonContent {
+  font-size: 1.25rem;
+  padding: 1rem 1.5rem;
+}
+
+/* Desktop screens */
+/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
+@media screen and (min-width: 800px) {
+  .medium.button {
+    padding: 0.188rem; /* 3px */
   }
-  to {
-    transform: rotate(360deg);
+  .medium .buttonContent {
+    font-size: 1.375rem;
+    padding: 1rem 1.5rem;
   }
-}
 
-/* Variant "contained"  */
-.contained {
-  border: solid 0.125rem color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
-  background-color: var(--color-primary);
-  color: var(--color-background);
-  text-decoration: none;
-}
-.contained:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 80%, var(--color-background));
-}
-.contained:disabled {
-  background-color: var(--color-primary);
-}
-
-/* Variant "outlined" */
-.outlined {
-  border: solid 0.125rem var(--color-primary);
-  background-color: transparent;
-  color: var(--color-primary);
-  text-decoration: none;
-}
-.outlined:disabled,
-.outlined:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 20%, var(--color-background));
-}
-
-/* Variant "text" */
-.text {
-  border: none;
-  background-color: transparent;
-  color: var(--color-primary);
-  padding: 0.125rem 0.5rem;
-}
-.text:disabled {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
-}
-.text:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
-  /* text-decoration: underline; */
-}
-
-/* Variant "icon" */
-.icon {
-  border: none;
-  background-color: transparent;
-  color: var(--color-primary);
-  padding: 0.25rem;
-}
-.icon:disabled,
-.icon:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
+  .large.button {
+    padding: 0.25rem; /* 4px */
+  }
+  .large .buttonContent {
+    font-size: 1.75rem;
+    padding: 1.25rem 2rem;
+  }
 }

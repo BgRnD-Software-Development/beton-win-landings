@@ -2,18 +2,15 @@ import { FunctionComponent, PropsWithChildren } from 'react';
 import type { Metadata, Viewport } from 'next';
 import { APP_NAME, PUBLIC_URL } from '@/config';
 import { OPEN_GRAPH_DEFAULT } from '@/app/config';
-import { FONTS } from '@/style';
+import { COLORS, FONTS } from '@/style';
 import Analytics from '@/components/tooling/Analytics';
 import Advertising from '@/components/tooling/Advertising';
-import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import MobileOrDesktop from '@/components/tooling/MobileOrDesktop';
 import StylesInjector from '@/components/tooling/StylesInjector';
 import './main.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(PUBLIC_URL),
-  manifest: '/site.webmanifest',
   openGraph: OPEN_GRAPH_DEFAULT,
 
   // TODO: put your texts here
@@ -22,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#FFFFFF', // TODO: put your theme color here
+  themeColor: COLORS['midnight-green'],
 };
 
 /**
@@ -40,13 +37,9 @@ const MainLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
       </head>
 
       <body className={FONTS.default.className}>
-        <Header />
+        {/* <Header /> */}
         <div className="content">{children}</div>
         <Footer />
-
-        <MobileOrDesktop
-        // TODO: Remove this injector if you don't use .isMobile and .isDesktop classes in your CSS styles
-        />
       </body>
     </>
   );

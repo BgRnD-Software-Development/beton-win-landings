@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
 import { PUBLIC_URL } from '@/config';
-// import { articleToUrl, getArticleList } from './(main)/article/utils';
 
 export const dynamic = 'force-static'; // Required by Next.js v 15+ for static builds
 
@@ -29,35 +28,29 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.3,
     },
-    {
-      url: `${PUBLIC_URL}/legal/privacy-policy/`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${PUBLIC_URL}/legal/terms-conditions/`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${PUBLIC_URL}/legal/software-license/`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    },
-    {
-      url: `${PUBLIC_URL}/download/`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
+    // {
+    //   url: `${PUBLIC_URL}/legal/privacy-policy/`,
+    //   lastModified,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.5,
+    // },
+    // {
+    //   url: `${PUBLIC_URL}/legal/terms-conditions/`,
+    //   lastModified,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.5,
+    // },
+    // {
+    //   url: `${PUBLIC_URL}/legal/software-license/`,
+    //   lastModified,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.4,
+    // },
     {
       url: `${PUBLIC_URL}/contact`,
       lastModified,
       changeFrequency: 'yearly',
-      priority: 0.9,
+      priority: 0.8,
     },
 
     // {

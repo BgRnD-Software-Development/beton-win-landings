@@ -3,19 +3,13 @@
 
 import { COLORS } from './colors';
 
-export const MOBILE_SCREEN_MAX_WIDTH = 800; // 640
 export const SERVER_SIDE_MOBILE_FIRST = true; // true - for mobile, false - for desktop
-
-/**
- * Button component
- */
-export const BUTTON_VARIANT = 'contained'; // | 'text' | 'outlined'
-export const BUTTON_MARGIN = '0.5rem';
-export const BUTTON_ICON_SIZE = '1.5rem';
+export const MOBILE_SCREEN_MAX_WIDTH = 800; // 640
+export const CONTENT_MAX_WIDTH = 1440;
 
 /**
  * Icon component
  */
 export const ICON_SIZE = '4rem';
-export const ICON_COLOR_NORMAL = COLORS.primary;
-export const ICON_COLOR_INVERTED = COLORS.background;
+export const ICON_COLOR_NORMAL = COLORS['snow-white'];
+export const ICON_COLOR_INVERTED = COLORS['midnight-green'];

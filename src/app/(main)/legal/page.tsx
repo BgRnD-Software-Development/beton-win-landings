@@ -1,6 +1,5 @@
-import { APP_NAME, PUBLIC_URL } from '@/config';
+import { APP_NAME, EXTERNAL_LINK_PRIVACY_POLICY, EXTERNAL_LINK_TERMS_CONDITIONS, PUBLIC_URL } from '@/config';
 import { Link, Typo, Wrapper } from '@/components';
-
 /**
  * List of legal documents of the site
  * @page Legal
@@ -11,10 +10,10 @@ const LegalPage = () => {
       <Typo variant="header1">Legal Documents</Typo>
       <Typo variant="list">
         <li>
-          <Link href="/legal/privacy-policy">Privacy Policy</Link>
+          <Link href={EXTERNAL_LINK_PRIVACY_POLICY}>Privacy Policy</Link>
         </li>
         <li>
-          <Link href="/legal/terms-conditions">Terms and Conditions</Link>
+          <Link href={EXTERNAL_LINK_TERMS_CONDITIONS}>Terms and Conditions</Link>
         </li>
       </Typo>
     </Wrapper>

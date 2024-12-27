@@ -1,28 +1,30 @@
 /**
  * Fonts using standard NextJS font management.
  */
-import { Inter, Poppins } from 'next/font/google';
+import { IBM_Plex_Sans_Condensed, Prompt } from 'next/font/google';
 
 // Font 1
-const fontPoppins = Poppins({
-  weight: ['600', '700'],
-  subsets: ['latin'],
-  variable: '--font-poppins', // This set a CSS variable for the font, so we don't need to set it manually in the Main layout
+const fontPrompt = Prompt({
   display: 'swap',
+  style: 'italic',
+  subsets: ['latin'],
+  variable: '--font-prompt', // This set a CSS variable for the font, so we don't need to set it manually in the Main layout
+  weight: ['600'],
 });
 
 // Font 2
-const fontInter = Inter({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  variable: '--font-inter', // This set a CSS variable for the font, so we don't need to set it manually in the Main layout
+const fontIbm = IBM_Plex_Sans_Condensed({
   display: 'swap',
+  style: 'italic',
+  subsets: ['latin'],
+  variable: '--font-ibm', // This set a CSS variable for the font, so we don't need to set it manually in the Main layout
+  weight: ['700'],
 });
 
 export const FONTS = {
-  default: fontPoppins, // The default font is used for <body/>, so it should be set here
-  poppins: fontPoppins,
-  inter: fontInter,
+  default: fontPrompt, // The default font is used for <body/>, so it should be set here
+  prompt: fontPrompt,
+  ibm: fontIbm,
 };
 
 export default FONTS;
