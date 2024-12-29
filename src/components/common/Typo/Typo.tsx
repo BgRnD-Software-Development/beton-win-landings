@@ -1,7 +1,7 @@
-import { FunctionComponent, HTMLAttributes, PropsWithChildren, ReactNode, useMemo } from 'react';
+import { FunctionComponent, HTMLAttributes, JSX, PropsWithChildren, ReactNode } from 'react';
+import { FONTS } from '@/style';
 import HtmlTag from '../HtmlTag';
 import styles from './Typo.module.css';
-import { FONTS } from '../../../style';
 
 export type TypoAlign = 'center' | 'left' | 'right' | 'justify';
 export type TypoColor = 'white' | 'yellow' | 'dark';
@@ -51,7 +51,8 @@ const Typo: FunctionComponent<TypoProps> = ({
   ...restOfProps
 }) => {
   const classToRender = [
-    FONTS[font].className,
+    styles.typo, // Base class
+    FONTS?.[font]?.className,
     styles[color],
     styles[size],
     styles[align],

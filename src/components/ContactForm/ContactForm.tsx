@@ -76,7 +76,7 @@ const ContactForm = () => {
         {emailSent && <div className={styles.success}>Your message sent successfully</div>}
         {error && <div className={styles.error}>Error: {error}</div>}
         <Button disabled={isSubmitting} type="submit" variant="purple">
-          {isSubmitting ? 'Sending' : 'Send'}
+          {isSubmitting ? 'Sending...' : 'Send'}
         </Button>
       </div>
     </form>

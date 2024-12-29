@@ -4,8 +4,19 @@
   padding: 0 0.5rem;
 }
 
+.fullHeight {
+  min-height: 100vh;
+}
+
 .fullWidth {
   max-width: 100%;
   width: 100%;
-  padding: 0;
+}
+
+/* Variants for Desktop Screen */
+/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
+@media screen and (min-width: 800px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
 }

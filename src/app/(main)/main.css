@@ -12,6 +12,10 @@
   /* Note --font-xxx values are set by Next.js fonts, see `/src/style/fonts.ts` file for details */
   /* TODO: Better set values matching JS configs here, otherwise server side components may have wrong styles */
 
+  --color-error: #da3027;
+  --color-success: #2dec76;
+
+  --color-dark-text: #092d34;
   --color-gray-text: #3e3e3e;
 
   --color-midnight-green: #02252d;

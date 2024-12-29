@@ -1,3 +1,17 @@
+.typo {
+  font-family: var(--font-prompt);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 125%;
+  letter-spacing: 0.01em;
+}
+.typo ul {
+  list-style: disc;
+}
+.typo li {
+  margin-inline-start: 1rem;
+}
+
 /* Modifiers */
 
 .capitalize {
@@ -69,5 +83,9 @@
   }
   .large {
     font-size: 3.75rem; /* 60px */
+  }
+
+  .typo li {
+    margin-inline-start: 2rem;
   }
 }
