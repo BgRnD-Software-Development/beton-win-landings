@@ -8,6 +8,8 @@
   --content-max-width: 1440px; /* Sync with CONTENT_MAX_WIDTH value */
   --desktop-min-width: 800px; /* Sync with MOBILE_SCREEN_MAX_WIDTH value */
 
+  --footer-min-height: 13rem; /* Footer height on Mobile devices, Desktop value is changing by @media query */
+
   /* We will sync --color-xxx and --font-xxx values with COLORS and FONTS during the Main layout loading */
   /* Note --font-xxx values are set by Next.js fonts, see `/src/style/fonts.ts` file for details */
   /* TODO: Better set values matching JS configs here, otherwise server side components may have wrong styles */
@@ -39,4 +41,12 @@ body {
 
 a {
   text-decoration: none;
+}
+
+/* Variants for Desktop Screen */
+/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
+@media screen and (min-width: 800px) {
+  :root {
+    --footer-min-height: 6rem; /* Height on Desktop devices */
+  }
 }

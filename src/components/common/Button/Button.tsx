@@ -18,6 +18,7 @@ export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTML
  * @component Button
  * @param {string} [activeClassName] - optional class name to apply when button is a link and current page matches .href
  * @param {string} [href] - optional href, if provided, button will be rendered as <a> tag
+ * @param {ButtonSize} [size] - size of the button, defaults to "medium"
  * @param {ButtonVariant} [variant] - variant of the button, defaults to "contained" via BUTTON_VARIANT config
  */
 const Button: FunctionComponent<ButtonProps> = ({

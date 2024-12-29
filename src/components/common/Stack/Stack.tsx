@@ -1,4 +1,4 @@
-import { FunctionComponent, HTMLAttributes, PropsWithChildren, useMemo } from 'react';
+import { cache, FunctionComponent, HTMLAttributes, JSX, PropsWithChildren } from 'react';
 import HtmlTag from '../HtmlTag';
 import styles from './Stack.module.css';
 
@@ -7,6 +7,8 @@ export interface StackProps extends PropsWithChildren<HTMLAttributes<HTMLDivElem
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
   alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
   direction?: 'row' | 'column' | 'column-reverse' | 'row-reverse';
+  fullHeight?: boolean;
+  fullWidth?: boolean;
   gap?: number | string;
   htmlTag?: keyof JSX.IntrinsicElements;
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch';
@@ -20,6 +22,8 @@ export interface StackProps extends PropsWithChildren<HTMLAttributes<HTMLDivElem
  * @param {string} [alignItems] - align-items CSS property
  * @param {string} [alignSelf] - align-self CSS property
  * @param {string} [direction] - row, column or reversed, defaults to 'column'
+ * @param {boolean} [fullHeight] - if true, stack will take all available height
+ * @param {boolean} [fullWidth] - if true, stack will take all available width
  * @param {number | string} [gap] - controls space between children elements
  * @param {string} [htmlTag] - HTML tag to render, defaults to 'div'
  * @param {string} [justifyContent] - justify-content CSS property
@@ -33,6 +37,8 @@ export const Stack: FunctionComponent<StackProps> = ({
   children,
   className,
   direction = 'column',
+  fullHeight,
+  fullWidth,
   gap,
   htmlTag = 'div',
   justifyContent,
@@ -41,12 +47,13 @@ export const Stack: FunctionComponent<StackProps> = ({
   style,
   ...restOfProps
 }) => {
-  const classToRender = useMemo(
-    () => [styles.stack, styles[direction], className].filter(Boolean).join(' '),
-    [className, direction]
+  const classToRender = cache(() =>
+    [styles.stack, styles[direction], fullHeight && styles.fullHeight, fullWidth && styles.fullWidth, className]
+      .filter(Boolean)
+      .join(' ')
   );
 
-  const styleToRender = useMemo(() => {
+  const styleToRender = cache(() => {
     const gapToRender = typeof gap === 'number' ? `${gap}px` : gap;
     const marginToRender = typeof margin === 'number' ? `${margin}px` : margin;
     const paddingToRender = typeof padding === 'number' ? `${padding}px` : padding;
@@ -60,10 +67,10 @@ export const Stack: FunctionComponent<StackProps> = ({
       padding: paddingToRender,
       ...style,
     };
-  }, [alignContent, alignItems, alignSelf, gap, justifyContent, margin, padding, style]);
+  });
 
   return (
-    <HtmlTag className={classToRender} tag={htmlTag} style={styleToRender} {...restOfProps}>
+    <HtmlTag className={classToRender()} tag={htmlTag} style={styleToRender()} {...restOfProps}>
       {children}
     </HtmlTag>
   );

@@ -1,4 +1,4 @@
-import { FunctionComponent, HTMLAttributes, JSX, PropsWithChildren, ReactNode } from 'react';
+import { cache, FunctionComponent, HTMLAttributes, JSX, PropsWithChildren, ReactNode } from 'react';
 import { FONTS } from '@/style';
 import HtmlTag from '../HtmlTag';
 import styles from './Typo.module.css';
@@ -50,29 +50,31 @@ const Typo: FunctionComponent<TypoProps> = ({
   uppercase,
   ...restOfProps
 }) => {
-  const classToRender = [
-    styles.typo, // Base class
-    FONTS?.[font]?.className,
-    styles[color],
-    styles[size],
-    styles[align],
-    bold && styles.bold,
-    capitalize && styles.capitalize,
-    underline && styles.underline,
-    uppercase && styles.uppercase,
-    className, // Custom class must be the last one
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const classToRender = cache(() =>
+    [
+      styles.typo, // Base class
+      FONTS?.[font]?.className,
+      styles[color],
+      styles[size],
+      styles[align],
+      bold && styles.bold,
+      capitalize && styles.capitalize,
+      underline && styles.underline,
+      uppercase && styles.uppercase,
+      className, // Custom class must be the last one
+    ]
+      .filter(Boolean)
+      .join(' ')
+  );
 
-  const styleToRender = {
+  const styleToRender = cache(() => ({
     ...(!styles?.[color] && { color: color }), // if exact color is not defined in CSS, pass the color as a string
     ...(!styles?.[size] && { fontSize: size }), // if exact size is not defined in CSS, pass the size as fontSize
     ...style,
-  };
+  }));
 
   return (
-    <HtmlTag className={classToRender} style={styleToRender} tag={htmlTag} {...restOfProps}>
+    <HtmlTag className={classToRender()} style={styleToRender()} tag={htmlTag} {...restOfProps}>
       {children}
     </HtmlTag>
   );
