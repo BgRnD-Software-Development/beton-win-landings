@@ -27,6 +27,21 @@
   --color-snow-white: #ffffff;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 body {
   background-color: var(--color-midnight-green);
   color: var(--color-snow-white);
@@ -37,10 +52,6 @@ body {
 .content {
   margin: 0 auto;
   max-width: var(--content-max-width);
-}
-
-a {
-  text-decoration: none;
 }
 
 /* Variants for Desktop Screen */
