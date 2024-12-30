@@ -16,8 +16,7 @@ const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
         <Advertising />
       </head>
       <body className={FONTS.default.className}>
-        {/* <Header /> */}
-        <div className="content">{children}</div>
+        {children}
         <Footer />
       </body>
     </html>

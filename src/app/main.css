@@ -49,10 +49,10 @@ body {
   width: 100%;
 }
 
-.content {
+/* .content {
   margin: 0 auto;
   max-width: var(--content-max-width);
-}
+} */
 
 /* Variants for Desktop Screen */
 /* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */

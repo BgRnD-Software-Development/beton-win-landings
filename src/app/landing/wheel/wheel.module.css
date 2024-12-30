@@ -1,0 +1,20 @@
+.wrapper {
+  background-image: url('background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Variants for Desktop Screen */
+/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
+@media screen and (min-width: 800px) {
+  .wrapper {
+    background-image: url('ball.webp'), url('heart.webp'), url('background.webp');
+    background-size: auto, auto, cover;
+    background-position:
+      bottom -2rem left 40%,
+      right 10% top 8rem,
+      center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+}

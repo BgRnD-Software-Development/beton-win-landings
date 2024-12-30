@@ -31,16 +31,20 @@ const AttemptsCount: FunctionComponent<Props> = ({ count }) => {
 
   const gap = isMobile ? '0.5rem' : '1rem';
 
+  const textStyle = {
+    zIndex: variant === 'white' ? 1 : undefined,
+  };
+
   return (
     <div className={styles.container}>
       {variant === 'white' && <WhitePlateSvg className={styles.background} />}
       <Stack direction="row" alignItems="center" gap={gap}>
-        <Typo align="right" color={labelColor} size={labelSize}>
+        <Typo align="right" color={labelColor} size={labelSize} style={textStyle}>
           TIENES
           <br />
           INTENTOS
         </Typo>
-        <Typo color={countColor} size={countSize}>
+        <Typo color={countColor} size={countSize} style={textStyle}>
           {count}
         </Typo>
       </Stack>

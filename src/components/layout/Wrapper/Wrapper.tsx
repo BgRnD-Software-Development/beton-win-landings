@@ -44,7 +44,7 @@ const Wrapper: FunctionComponent<WrapperProps> = ({
 
   return (
     <HtmlTag tag={htmlTag} className={classToRender} style={styleToRender} {...restOfProps}>
-      {children}
+      <div className={styles.content}>{children}</div>
     </HtmlTag>
   );
 };

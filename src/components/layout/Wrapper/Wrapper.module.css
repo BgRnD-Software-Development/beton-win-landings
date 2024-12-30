@@ -1,6 +1,6 @@
 .wrapper {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   padding: 0 0.5rem;
 
   display: flex;
@@ -8,14 +8,18 @@
   justify-content: center;
   gap: 1rem;
 }
-
 .fullHeight {
   min-height: calc(100vh - var(--footer-min-height));
   height: 100%;
 }
-
 .fullWidth {
   max-width: 100%;
+  width: 100%;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: var(--content-max-width);
   width: 100%;
 }
 

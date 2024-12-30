@@ -1,9 +1,15 @@
 import { Button, Logo, Stack, Typo, Wrapper } from '@/components';
 import { AttemptsCount } from '../components';
+import styles from './wheel.module.css';
 
+/**
+ * Landing page "Fortune Wheel"
+ * @page WheelLanding
+ * @url /landing/wheel/
+ */
 const WheelLandingPage = () => {
   return (
-    <Wrapper htmlTag="article" fullHeight>
+    <Wrapper className={styles.wrapper} htmlTag="article" fullHeight fullWidth>
       <Stack direction="row" justifyContent="space-between">
         <Logo variant="horizontal" width={180} />
         <Button>REGÍSTRATE</Button>
