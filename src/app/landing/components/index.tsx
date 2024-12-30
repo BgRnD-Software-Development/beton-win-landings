@@ -1,3 +1,5 @@
 import AttemptsCount from './AttemptsCount';
+import LogoAndRegisterButton from './LogoAndRegisterButton';
+import PromoText from './PromoText';
 
-export { AttemptsCount };
+export { AttemptsCount, LogoAndRegisterButton, PromoText };

@@ -4,9 +4,7 @@
   padding: 0 0.5rem;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
+  align-items: stretch;
 }
 .fullHeight {
   min-height: calc(100vh - var(--footer-min-height));

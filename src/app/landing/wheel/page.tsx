@@ -1,5 +1,5 @@
 import { Button, Logo, Stack, Typo, Wrapper } from '@/components';
-import { AttemptsCount } from '../components';
+import { AttemptsCount, LogoAndRegisterButton, PromoText } from '../components';
 import styles from './wheel.module.css';
 
 /**
@@ -10,27 +10,14 @@ import styles from './wheel.module.css';
 const WheelLandingPage = () => {
   return (
     <Wrapper className={styles.wrapper} htmlTag="article" fullHeight fullWidth>
-      <Stack direction="row" justifyContent="space-between">
-        <Logo variant="horizontal" width={180} />
-        <Button>REGÍSTRATE</Button>
-      </Stack>
-      <Stack>
-        <Stack direction="row" alignItems="center" gap="1rem">
-          <Typo color="yellow" size="large">
-            GIRA
-          </Typo>
-          <Typo color="white" size="medium">
-            LA RULETA
-          </Typo>
-          <Typo color="yellow" size="large">
-            Y GANA
-          </Typo>
-        </Stack>
-        <Typo color="white" size="small">
-          UN PREMIO ESPECIAL
-        </Typo>
-      </Stack>
-      <AttemptsCount count={3} />
+      <LogoAndRegisterButton />
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'stretch' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '20rem', justifyContent: 'space-around' }}>
+          <PromoText />
+          <AttemptsCount count={3} />
+        </div>
+        <div style={{ flexGrow: 1, minHeight: '50rem', border: '1px dotted #f0f' }}>Fortune Wheel here...</div>
+      </div>
     </Wrapper>
   );
 };

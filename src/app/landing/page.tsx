@@ -3,7 +3,7 @@ import { Link, Stack, Typo, Wrapper } from '@/components';
 const ListOfLandingsPage = () => {
   return (
     <Wrapper htmlTag="article" fullHeight>
-      <Stack gap="1rem">
+      <Stack gap="1rem" fullHeight justifyContent="center">
         <Typo htmlTag="h1" size="large">
           Landing Pages
         </Typo>

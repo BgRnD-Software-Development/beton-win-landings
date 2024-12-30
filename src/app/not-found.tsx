@@ -3,7 +3,7 @@ import { Stack, Typo, Wrapper } from '@/components';
 const NotFoundPage = () => {
   return (
     <Wrapper htmlTag="article" fullHeight>
-      <Stack alignItems="center">
+      <Stack alignItems="center" fullHeight justifyContent="center">
         <Typo color="yellow" htmlTag="h1" size="large">
           404
         </Typo>
