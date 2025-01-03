@@ -5,12 +5,12 @@ import svgWheelContent from './wheel-content.svg';
 import { Button } from '@/components';
 import styles from './FortuneWheel.module.css';
 
-const SPIN_COUNT_TO_WIN = 2;
 const SPIN_DURATION_IN_SECONDS = 5;
 
 interface Props {
   size: number;
-  onSpinEnd?: (isWinner: boolean) => void;
+  spinsToWin: number;
+  onSpinEnd: (isWinner: boolean, remainingSpins: number) => void;
 }
 
 /**
@@ -19,7 +19,7 @@ interface Props {
  * @param {number} [size] - size of the wheel, defaults to 640
  * @param {function} [onSpinEnd] - callback to call when spinning ends
  */
-const FortuneWheel: FunctionComponent<Props> = ({ size = 640, onSpinEnd }) => {
+const FortuneWheel: FunctionComponent<Props> = ({ size = 640, spinsToWin = 3, onSpinEnd }) => {
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinCounter, setSpinCounter] = useState(0);
   const timeoutId = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -29,7 +29,7 @@ const FortuneWheel: FunctionComponent<Props> = ({ size = 640, onSpinEnd }) => {
   const frameWidth = size + 2 * contentOffset;
   const frameHeight = size + 2 * contentOffset + 123;
 
-  const isWinner = spinCounter >= SPIN_COUNT_TO_WIN;
+  const isWinner = spinCounter >= spinsToWin;
 
   const wheelClass = [
     styles.wheel,
@@ -67,7 +67,7 @@ const FortuneWheel: FunctionComponent<Props> = ({ size = 640, onSpinEnd }) => {
     timeoutId.current = setTimeout(() => {
       // Note: the CSS animation-duration should be less then SPIN_DURATION_IN_SECONDS value
       setIsSpinning(false);
-      onSpinEnd?.(spinNumberWhenButtonCLicked >= SPIN_COUNT_TO_WIN);
+      onSpinEnd?.(spinNumberWhenButtonCLicked >= spinsToWin, spinsToWin - spinNumberWhenButtonCLicked);
       timeoutId.current = undefined;
     }, SPIN_DURATION_IN_SECONDS * 1000);
   };
