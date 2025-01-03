@@ -18,6 +18,15 @@ const ButtonDemo = () => {
           Large
         </Button>
       </Stack>
+      <Stack alignItems="center" direction="row">
+        <Button variant="round">Round</Button>
+        <Button variant="round" disabled>
+          Disabled
+        </Button>
+        <Button size="large" variant="round">
+          Large
+        </Button>
+      </Stack>
     </>
   );
 };

@@ -3,7 +3,7 @@ import { FunctionComponent, PropsWithChildren, useCallback, useMemo, KeyboardEve
 import Link from '../Link';
 import styles from './Button.module.css';
 
-export type ButtonVariant = 'purple';
+export type ButtonVariant = 'purple' | 'round';
 export type ButtonSize = 'medium' | 'large';
 
 export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>> {

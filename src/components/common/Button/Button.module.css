@@ -29,7 +29,7 @@
   border-radius: 999rem;
 }
 
-/* Variant "purple"  */
+/* Variant "purple" */
 .purple {
   --color-gradient-a: #9c60ef;
   --color-gradient-b: #740ce6;
@@ -42,6 +42,29 @@
 }
 .purple .buttonContent {
   background: linear-gradient(0deg, var(--color-gradient-a) 40%, var(--color-gradient-b));
+}
+
+/* Variant "round" */
+.round {
+  --color-gradient-a: #9c60ef;
+  --color-gradient-b: #740ce6;
+
+  background: linear-gradient(0deg, var(--color-gradient-b) 40%, var(--color-gradient-a));
+  color: var(--color-show-white);
+}
+.round:hover {
+  filter: brightness(115%);
+}
+.round .buttonContent {
+  background: linear-gradient(0deg, var(--color-gradient-a) 40%, var(--color-gradient-b));
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+
+  /* padding: 0 !important; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Classes for .size property */
@@ -78,5 +101,10 @@
   .large .buttonContent {
     font-size: 1.75rem;
     padding: 1.25rem 2rem;
+  }
+
+  .round .buttonContent {
+    width: 6rem;
+    height: 6rem;
   }
 }

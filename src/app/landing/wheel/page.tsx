@@ -1,5 +1,6 @@
-import { Button, Logo, Stack, Typo, Wrapper } from '@/components';
+import { Wrapper } from '@/components';
 import { AttemptsCount, LogoAndRegisterButton, PromoText } from '../components';
+import { FortuneWheel } from './components';
 import styles from './wheel.module.css';
 
 /**
@@ -8,6 +9,8 @@ import styles from './wheel.module.css';
  * @url /landing/wheel/
  */
 const WheelLandingPage = () => {
+  const wheelSize = 640;
+
   return (
     <Wrapper className={styles.wrapper} htmlTag="article" fullHeight fullWidth>
       <LogoAndRegisterButton />
@@ -16,7 +19,9 @@ const WheelLandingPage = () => {
           <PromoText />
           <AttemptsCount count={3} />
         </div>
-        <div style={{ flexGrow: 1, minHeight: '50rem', border: '1px dotted #f0f' }}>Fortune Wheel here...</div>
+        <div style={{ flexGrow: 1, minHeight: '50rem', border: '1px dotted #f0f' }}>
+          <FortuneWheel size={480} />
+        </div>
       </div>
     </Wrapper>
   );
