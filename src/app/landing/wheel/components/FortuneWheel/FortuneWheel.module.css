@@ -1,6 +1,7 @@
 .wrapper {
   --spin-button-size: 4rem;
   position: relative;
+  overflow: hidden;
 }
 
 .button {

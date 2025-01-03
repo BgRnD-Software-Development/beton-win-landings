@@ -9,7 +9,7 @@ import styles from './wheel.module.css';
  * @url /landing/wheel/
  */
 const WheelLandingPage = () => {
-  const wheelSize = 640;
+  const wheelSize = 480;
 
   return (
     <Wrapper className={styles.wrapper} htmlTag="article" fullHeight fullWidth>
@@ -20,7 +20,7 @@ const WheelLandingPage = () => {
           <AttemptsCount count={3} />
         </div>
         <div style={{ flexGrow: 1, minHeight: '50rem', border: '1px dotted #f0f' }}>
-          <FortuneWheel size={480} />
+          <FortuneWheel size={wheelSize} />
         </div>
       </div>
     </Wrapper>

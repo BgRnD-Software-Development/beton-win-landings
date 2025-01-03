@@ -13,11 +13,18 @@ interface Props {
   onSpinEnd?: (isWinner: boolean) => void;
 }
 
+/**
+ * Renders a "Fortune Wheel" and allows to spin it.
+ * @component FortuneWheel
+ * @param {number} [size] - size of the wheel, defaults to 640
+ * @param {function} [onSpinEnd] - callback to call when spinning ends
+ */
 const FortuneWheel: FunctionComponent<Props> = ({ size = 640, onSpinEnd }) => {
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinCounter, setSpinCounter] = useState(0);
   const timeoutId = useRef<NodeJS.Timeout | undefined>(undefined);
 
+  // TODO: Fix size calculation
   const contentOffset = size * 0.1;
   const frameWidth = size + 2 * contentOffset;
   const frameHeight = size + 2 * contentOffset + 123;
@@ -26,13 +33,16 @@ const FortuneWheel: FunctionComponent<Props> = ({ size = 640, onSpinEnd }) => {
 
   const wheelClass = [
     styles.wheel,
-    isWinner && styles.isWinner,
-    isSpinning && (isWinner ? styles.spinWinner : styles.spinNoBonus),
+    isWinner && styles.isWinner, // When amount of spins is enough, the "winning sector" is on top
+    isSpinning &&
+      (isWinner
+        ? styles.spinWinner // Animation will end on the "winning sector"
+        : styles.spinNoBonus), // Animation will end on the "losing sector"
   ]
     .filter(Boolean)
     .join(' ');
 
-  // Cleanup timeout on unmount
+  // Cleanup timeout on component unmount
   useEffect(() => {
     return () => {
       if (timeoutId.current) {

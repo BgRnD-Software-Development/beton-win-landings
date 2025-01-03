@@ -5,6 +5,7 @@ import { IS_DEBUG } from '@/config';
 import LogoDemo from './LogoDemo';
 import ButtonDemo from './ButtonDemo';
 import TypoDemo from './TypoDemo';
+import ModalDemo from './ModalDemo';
 
 /**
  * Renders a "DevTools" page that is only available in development mode (IS_DEBUG == true)
@@ -21,6 +22,7 @@ const DevToolsPage = () => {
       <LogoDemo />
       <ButtonDemo />
       <TypoDemo />
+      <ModalDemo />
     </Wrapper>
   );
 };
