@@ -1,15 +1,12 @@
 'use client';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import SpinButtonAsButton from '../SpinButton';
-import svgWheelFrame from './wheel-frame.svg';
-import svgWheelContent from './wheel-content.svg';
 import svgWheelMarker from './wheel-marker.svg';
 import styles from './FortuneWheel.module.css';
 
 const SPIN_DURATION_IN_SECONDS = 5;
 
 interface Props {
-  size: number;
   spinsToWin: number;
   onSpinEnd: (isWinner: boolean, remainingSpins: number) => void;
 }
@@ -17,18 +14,13 @@ interface Props {
 /**
  * Renders a "Fortune Wheel" and allows to spin it.
  * @component FortuneWheel
- * @param {number} [size] - size of the wheel, defaults to 640
+ * @param {number} [spinsToWin=3] - amount of spins required to win
  * @param {function} [onSpinEnd] - callback to call when spinning ends
  */
-const FortuneWheel: FunctionComponent<Props> = ({ size = 640, spinsToWin = 3, onSpinEnd }) => {
+const FortuneWheel: FunctionComponent<Props> = ({ spinsToWin = 3, onSpinEnd }) => {
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinCounter, setSpinCounter] = useState(0);
   const timeoutId = useRef<NodeJS.Timeout | undefined>(undefined);
-
-  // TODO: Fix size calculation
-  const contentOffset = 40;
-  const frameWidth = size + 2 * contentOffset;
-  const frameHeight = size + 2 * contentOffset + 128;
 
   const isWinner = spinCounter >= spinsToWin;
 
