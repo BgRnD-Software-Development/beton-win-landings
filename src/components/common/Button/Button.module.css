@@ -58,8 +58,8 @@
 .round .buttonContent {
   background: linear-gradient(0deg, var(--color-gradient-a) 40%, var(--color-gradient-b));
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
 
   /* padding: 0 !important; */
   display: flex;
@@ -104,7 +104,7 @@
   }
 
   .round .buttonContent {
-    width: 6rem;
-    height: 6rem;
+    width: 7rem;
+    height: 7rem;
   }
 }

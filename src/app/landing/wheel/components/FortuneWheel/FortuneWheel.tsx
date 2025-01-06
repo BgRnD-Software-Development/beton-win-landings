@@ -1,8 +1,9 @@
 'use client';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
-// import svgWheelFrame from './wheel-frame.svg';
+import SpinButtonAsButton from '../SpinButton';
+import svgWheelFrame from './wheel-frame.svg';
 import svgWheelContent from './wheel-content.svg';
-import { Button } from '@/components';
+import svgWheelMarker from './wheel-marker.svg';
 import styles from './FortuneWheel.module.css';
 
 const SPIN_DURATION_IN_SECONDS = 5;
@@ -25,9 +26,9 @@ const FortuneWheel: FunctionComponent<Props> = ({ size = 640, spinsToWin = 3, on
   const timeoutId = useRef<NodeJS.Timeout | undefined>(undefined);
 
   // TODO: Fix size calculation
-  const contentOffset = size * 0.1;
+  const contentOffset = 40;
   const frameWidth = size + 2 * contentOffset;
-  const frameHeight = size + 2 * contentOffset + 123;
+  const frameHeight = size + 2 * contentOffset + 128;
 
   const isWinner = spinCounter >= spinsToWin;
 
@@ -73,38 +74,10 @@ const FortuneWheel: FunctionComponent<Props> = ({ size = 640, spinsToWin = 3, on
   };
 
   return (
-    <div
-      className={styles.wrapper}
-      style={{
-        border: '1px #ff0 dotted',
-        // backgroundImage: `url(${svgWheelFrame.src})`,
-        // backgroundRepeat: 'no-repeat',
-        // backgroundPosition: 'center top',
-        // backgroundSize: `${size + 512}px ${size + 64}px`,
-        // backgroundSize: `${size + 512}px ${size + 64}px`,
-        width: frameWidth,
-        height: frameHeight,
-        paddingTop: contentOffset,
-        paddingLeft: contentOffset,
-        paddingRight: contentOffset,
-      }}
-    >
-      <div
-        className={wheelClass}
-        style={{
-          backgroundImage: `url(${svgWheelContent.src})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center top',
-          width: size,
-          height: size,
-          border: '1px #f00 dotted',
-        }}
-      />
-      {!isSpinning && (
-        <Button className={styles.button} size="large" variant="round" onClick={onButtonClick}>
-          Girar
-        </Button>
-      )}
+    <div className={styles.wrapper}>
+      <div className={wheelClass} />
+      <img className={styles.marker} src={svgWheelMarker.src} />
+      {!isSpinning && <SpinButtonAsButton onClick={onButtonClick} />}
     </div>
   );
 };

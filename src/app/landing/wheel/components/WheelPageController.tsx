@@ -16,7 +16,7 @@ const WheelPageController = () => {
   const [spinsToGo, setSpinsToGo] = useState(SPIN_COUNT_TO_WIN);
   const [modal, setModal] = useState<ReactNode>(undefined);
 
-  const wheelSize = 480; // TODO: Calculate size based on screen width
+  const wheelSize = 600; // TODO: Calculate size based on screen width
 
   const onSpinEnd = (isWinner: boolean, remainingSpins: number) => {
     if (!isWinner) {
@@ -49,7 +49,13 @@ const WheelPageController = () => {
           <PromoText />
           <AttemptsCount count={spinsToGo} />
         </div>
-        <div style={{ flexGrow: 1, minHeight: '50rem', border: '1px dotted #f0f' }}>
+        <div
+          style={{
+            // border: '1px dotted #f0f'
+            flexGrow: 1,
+            minHeight: '50rem',
+          }}
+        >
           <FortuneWheel size={wheelSize} spinsToWin={2} onSpinEnd={onSpinEnd} />
         </div>
       </div>

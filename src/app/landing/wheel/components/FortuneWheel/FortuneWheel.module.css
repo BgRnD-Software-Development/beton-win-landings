@@ -1,13 +1,30 @@
 .wrapper {
   --spin-button-size: 4rem;
+  --wheel-size: 300px;
+  --wheel-frame-offset: 20px;
+  --marker-size: 2rem;
+
   position: relative;
   overflow: hidden;
+
+  width: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset));
+  height: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset) + 128px);
+  padding-top: calc(var(--wheel-frame-offset) - 2px);
+  padding-left: var(--wheel-frame-offset);
+  padding-right: var(--wheel-frame-offset);
+
+  background-image: url(wheel-frame.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
 }
 
-.button {
+.marker {
   position: absolute;
-  top: calc(40% - var(--spin-button-size) / 2);
-  left: calc(50% - var(--spin-button-size) / 2);
+  top: 2rem;
+
+  left: calc(50% - (var(--marker-size) / 2));
+  width: var(--marker-size);
 }
 
 .wheel {
@@ -17,6 +34,13 @@
 
   animation-duration: 4.5s; /* Note: the CSS animation-duration should be less then SPIN_DURATION_IN_SECONDS value */
   transform-origin: 50% 50%;
+
+  width: var(--wheel-size);
+  height: var(--wheel-size);
+
+  background-image: url(wheel-content.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .isWinner {
@@ -53,6 +77,21 @@
 /* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
 @media screen and (min-width: 800px) {
   .wrapper {
-    --spin-button-size: 6rem;
+    --spin-button-size: 8rem;
+    --wheel-size: 600px;
+    --wheel-frame-offset: 40px;
+
+    padding-top: calc(var(--wheel-frame-offset) - 4px);
+    background-size: cover;
+  }
+
+  .marker {
+    --marker-size: 3rem;
+    top: 4rem;
+  }
+
+  .wheel {
+    width: var(--wheel-size);
+    height: var(--wheel-size);
   }
 }
