@@ -25,6 +25,12 @@
 
   left: calc(50% - (var(--marker-size) / 2));
   width: var(--marker-size);
+  height: calc(var(--marker-size) / 2);
+
+  background-image: url(wheel-marker.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
 }
 
 .wheel {

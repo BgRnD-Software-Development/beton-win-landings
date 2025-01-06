@@ -13,14 +13,15 @@ const SPIN_COUNT_TO_WIN = 2;
  * @controller WheelPage
  */
 const WheelPageController = () => {
-  const [spinsToGo, setSpinsToGo] = useState(SPIN_COUNT_TO_WIN);
+  const [remainingSpins, setRemainingSpins] = useState(SPIN_COUNT_TO_WIN);
   const [modal, setModal] = useState<ReactNode>(undefined);
 
   const onSpinEnd = (remainingSpins: number) => {
     const isWinner = remainingSpins <= 0;
 
     if (!isWinner) {
-      setSpinsToGo(Math.max(remainingSpins, 1));
+      // Looser case
+      setRemainingSpins(Math.max(remainingSpins, 1));
       setModal(
         <FullScreenModal open={true} onClose={() => setModal(undefined)}>
           <SpinResultNoBonus />
@@ -30,7 +31,7 @@ const WheelPageController = () => {
     }
 
     // Winner case
-    setSpinsToGo(0);
+    setRemainingSpins(0);
     setModal(
       <FullScreenModal open={true} ignoreBodyClick hideCloseButton onClose={() => setModal(undefined)}>
         <SpinResultWin />
@@ -47,7 +48,7 @@ const WheelPageController = () => {
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'stretch' }}>
         <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '20rem', justifyContent: 'space-around' }}>
           <PromoText />
-          <AttemptsCount count={spinsToGo} />
+          <AttemptsCount count={remainingSpins} />
         </div>
         <div
           style={{
@@ -56,7 +57,7 @@ const WheelPageController = () => {
             minHeight: '50rem',
           }}
         >
-          <FortuneWheel remainingSpins={spinsToGo} onSpinEnd={onSpinEnd} />
+          <FortuneWheel remainingSpins={remainingSpins} onSpinEnd={onSpinEnd} />
         </div>
       </div>
     </>

@@ -1,7 +1,6 @@
 'use client';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import SpinButton from '../SpinButton';
-import svgWheelMarker from './wheel-marker.svg';
 import styles from './FortuneWheel.module.css';
 
 const SPIN_DURATION_IN_SECONDS = 5;
@@ -64,7 +63,7 @@ const FortuneWheel: FunctionComponent<Props> = ({ remainingSpins, onSpinEnd }) =
   return (
     <div className={styles.wrapper}>
       <div className={wheelClassName} />
-      <img className={styles.marker} src={svgWheelMarker.src} />
+      <div className={styles.marker} />
       {!isSpinning && <SpinButton onClick={onButtonClick} />}
     </div>
   );
