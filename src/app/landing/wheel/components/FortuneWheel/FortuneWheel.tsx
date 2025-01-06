@@ -1,30 +1,29 @@
 'use client';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
-import SpinButtonAsButton from '../SpinButton';
+import SpinButton from '../SpinButton';
 import svgWheelMarker from './wheel-marker.svg';
 import styles from './FortuneWheel.module.css';
 
 const SPIN_DURATION_IN_SECONDS = 5;
 
 interface Props {
-  spinsToWin: number;
-  onSpinEnd: (isWinner: boolean, remainingSpins: number) => void;
+  remainingSpins: number;
+  onSpinEnd: (remainingSpinsAfter: number) => void;
 }
 
 /**
  * Renders a "Fortune Wheel" and allows to spin it.
  * @component FortuneWheel
- * @param {number} [spinsToWin=3] - amount of spins required to win
+ * @param {number} spinNumber - number of next spin (0 means winning spin)
  * @param {function} [onSpinEnd] - callback to call when spinning ends
  */
-const FortuneWheel: FunctionComponent<Props> = ({ spinsToWin = 3, onSpinEnd }) => {
+const FortuneWheel: FunctionComponent<Props> = ({ remainingSpins, onSpinEnd }) => {
   const [isSpinning, setIsSpinning] = useState(false);
-  const [spinCounter, setSpinCounter] = useState(0);
   const timeoutId = useRef<NodeJS.Timeout | undefined>(undefined);
 
-  const isWinner = spinCounter >= spinsToWin;
+  const isWinner = remainingSpins <= 0;
 
-  const wheelClass = [
+  const wheelClassName = [
     styles.wheel,
     isWinner && styles.isWinner, // When amount of spins is enough, the "winning sector" is on top
     isSpinning &&
@@ -45,31 +44,28 @@ const FortuneWheel: FunctionComponent<Props> = ({ spinsToWin = 3, onSpinEnd }) =
   }, []);
 
   // Start spinning animation
-  // TODO: Do we need useCallback here?
   const onButtonClick = () => {
     if (timeoutId.current) {
       return; // Already spinning, ignore
     }
-
     // Start spinning
-    const spinNumberWhenButtonCLicked = spinCounter + 1;
-    setSpinCounter(spinNumberWhenButtonCLicked);
     setIsSpinning(true);
-
     // Create a timeout to stop spinning
     timeoutId.current = setTimeout(() => {
       // Note: the CSS animation-duration should be less then SPIN_DURATION_IN_SECONDS value
       setIsSpinning(false);
-      onSpinEnd?.(spinNumberWhenButtonCLicked >= spinsToWin, spinsToWin - spinNumberWhenButtonCLicked);
+      onSpinEnd?.(
+        remainingSpins - 1 // Decrease remaining spins
+      );
       timeoutId.current = undefined;
     }, SPIN_DURATION_IN_SECONDS * 1000);
   };
 
   return (
     <div className={styles.wrapper}>
-      <div className={wheelClass} />
+      <div className={wheelClassName} />
       <img className={styles.marker} src={svgWheelMarker.src} />
-      {!isSpinning && <SpinButtonAsButton onClick={onButtonClick} />}
+      {!isSpinning && <SpinButton onClick={onButtonClick} />}
     </div>
   );
 };

@@ -16,7 +16,9 @@ const WheelPageController = () => {
   const [spinsToGo, setSpinsToGo] = useState(SPIN_COUNT_TO_WIN);
   const [modal, setModal] = useState<ReactNode>(undefined);
 
-  const onSpinEnd = (isWinner: boolean, remainingSpins: number) => {
+  const onSpinEnd = (remainingSpins: number) => {
+    const isWinner = remainingSpins <= 0;
+
     if (!isWinner) {
       setSpinsToGo(Math.max(remainingSpins, 1));
       setModal(
@@ -54,7 +56,7 @@ const WheelPageController = () => {
             minHeight: '50rem',
           }}
         >
-          <FortuneWheel spinsToWin={2} onSpinEnd={onSpinEnd} />
+          <FortuneWheel remainingSpins={spinsToGo} onSpinEnd={onSpinEnd} />
         </div>
       </div>
     </>
