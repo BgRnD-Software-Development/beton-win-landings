@@ -15,7 +15,7 @@ const FooterLinks = () => {
         </Link>
       </DesktopOnly>
       <Link href={EXTERNAL_LINK_EMAIL}>Contacto: servicio-al-cliente@beton.win</Link>
-      <Link href="/contact/">Contacto</Link>
+      {/* <Link href="/contact/">Contacto</Link> */}
       <Link href={EXTERNAL_LINK_TERMS_CONDITIONS}>Juego Responsable</Link>
       <Link href={EXTERNAL_LINK_PRIVACY_POLICY}>Politica De Privacidad</Link>
     </DesktopOnlyStack>
