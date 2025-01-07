@@ -1,4 +1,4 @@
-import React, { FunctionComponent, PropsWithChildren } from 'react';
+import { FunctionComponent, PropsWithChildren } from 'react';
 import { useRouter } from 'next/router';
 import mockRouter from 'next-router-mock';
 import { render, screen } from '@testing-library/react';

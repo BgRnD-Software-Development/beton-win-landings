@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { AttemptsCount, PromoText } from '../../../components';
 import { WheelCompositionProps } from './utils';
 import FortuneWheel from '../FortuneWheel';
