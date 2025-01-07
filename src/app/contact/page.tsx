@@ -1,0 +1,28 @@
+import { APP_NAME, PUBLIC_URL } from '@/config';
+import { Wrapper } from '@/components';
+import BlockContactForm from './BlockContactForm';
+
+/**
+ * Content of the "Contact" page
+ * @page Contact
+ */
+const ContactPage = () => {
+  return (
+    <Wrapper htmlTag="article" fullHeight>
+      <BlockContactForm />
+      {/* <BlockSocialMedia /> */}
+    </Wrapper>
+  );
+};
+
+/**
+ * MetaData for the page
+ */
+export const metadata = {
+  title: `Contact - ${APP_NAME}`,
+  alternates: {
+    canonical: `${PUBLIC_URL}/contact/`,
+  },
+};
+
+export default ContactPage;

@@ -1,0 +1,56 @@
+/*******************************************************************************
+
+    Styles used by the Main layout. Applied to `/src/app/(main)/...` pages. 
+
+*******************************************************************************/
+
+:root {
+  --content-max-width: 1440px; /* Sync with CONTENT_MAX_WIDTH value */
+  --desktop-min-width: 800px; /* Sync with MOBILE_SCREEN_MAX_WIDTH value */
+
+  --footer-min-height: 13rem; /* Footer height on Mobile devices, Desktop value is changing by @media query */
+
+  /* We will sync --color-xxx and --font-xxx values with COLORS and FONTS during the Main layout loading */
+  /* Note --font-xxx values are set by Next.js fonts, see `/src/style/fonts.ts` file for details */
+
+  --color-error: #da3027;
+  --color-success: #2dec76;
+
+  --color-dark-text: #092d34;
+  --color-gray-text: #3e3e3e;
+
+  --color-midnight-green: #02252d;
+  --color-dark-slate-gray: #1f5254;
+  --color-aureolin: #f2eb00;
+  --color-spring-green: #2dec76;
+  --color-snow-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  background-color: var(--color-midnight-green);
+  color: var(--color-snow-white);
+  padding: 0;
+  width: 100%;
+}
+
+/* Desktop Screens */
+@media screen and (min-width: 800px) {
+  :root {
+    --footer-min-height: 6rem; /* Height on Desktop devices */
+  }
+}

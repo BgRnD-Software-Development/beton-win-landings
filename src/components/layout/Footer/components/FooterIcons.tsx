@@ -1,6 +1,7 @@
 import { Stack } from '../../../common';
 
 const FooterIcons = () => {
+  /* eslint-disable @next/next/no-img-element */
   return (
     <Stack direction="row" justifyContent="space-around" alignItems="center" gap="1rem">
       <img src="/img/logo/logo-web-pay.png" alt="Web Pay Logotype" />

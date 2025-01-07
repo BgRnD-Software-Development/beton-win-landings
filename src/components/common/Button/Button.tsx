@@ -3,7 +3,7 @@ import { FunctionComponent, PropsWithChildren, useCallback, useMemo, KeyboardEve
 import Link from '../Link';
 import styles from './Button.module.css';
 
-export type ButtonVariant = 'purple';
+export type ButtonVariant = 'purple' | 'round';
 export type ButtonSize = 'medium' | 'large';
 
 export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>> {
@@ -18,6 +18,7 @@ export interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTML
  * @component Button
  * @param {string} [activeClassName] - optional class name to apply when button is a link and current page matches .href
  * @param {string} [href] - optional href, if provided, button will be rendered as <a> tag
+ * @param {ButtonSize} [size] - size of the button, defaults to "medium"
  * @param {ButtonVariant} [variant] - variant of the button, defaults to "contained" via BUTTON_VARIANT config
  */
 const Button: FunctionComponent<ButtonProps> = ({
@@ -44,7 +45,7 @@ const Button: FunctionComponent<ButtonProps> = ({
 
   const classToRender = useMemo(
     () => [styles.button, styles[size], styles[variant], className].filter(Boolean).join(' '),
-    [className, variant]
+    [className, size, variant]
   );
 
   const buttonContent = useMemo(() => {
@@ -57,7 +58,7 @@ const Button: FunctionComponent<ButtonProps> = ({
     // }
 
     return <div className={styles.buttonContent}>{children}</div>;
-  }, [children, size]);
+  }, [children]);
 
   // Render as <a> tag if .href is provided, but only if button is not disabled
   if (href && !disabled) {

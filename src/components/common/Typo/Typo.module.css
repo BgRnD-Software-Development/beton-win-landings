@@ -1,3 +1,17 @@
+.typo {
+  font-family: var(--font-prompt);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 125%;
+  letter-spacing: 0.01em;
+}
+.typo ul {
+  list-style: disc;
+}
+.typo li {
+  margin-inline-start: 1rem;
+}
+
 /* Modifiers */
 
 .capitalize {
@@ -32,6 +46,10 @@
   text-transform: uppercase;
 }
 
+.noWrap {
+  white-space: nowrap;
+}
+
 /* Colors */
 
 .white {
@@ -58,8 +76,7 @@
   font-size: 1.875rem; /* 30px */
 }
 
-/* Variants for Desktop Screen */
-/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
+/* Desktop Screens */
 @media screen and (min-width: 800px) {
   .small {
     font-size: 1.875rem; /* 30px */
@@ -69,5 +86,9 @@
   }
   .large {
     font-size: 3.75rem; /* 60px */
+  }
+
+  .typo li {
+    margin-inline-start: 2rem;
   }
 }

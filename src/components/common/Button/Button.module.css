@@ -29,7 +29,7 @@
   border-radius: 999rem;
 }
 
-/* Variant "purple"  */
+/* Variant "purple" */
 .purple {
   --color-gradient-a: #9c60ef;
   --color-gradient-b: #740ce6;
@@ -42,6 +42,28 @@
 }
 .purple .buttonContent {
   background: linear-gradient(0deg, var(--color-gradient-a) 40%, var(--color-gradient-b));
+}
+
+/* Variant "round" */
+.round {
+  --color-gradient-a: #9c60ef;
+  --color-gradient-b: #740ce6;
+
+  background: linear-gradient(0deg, var(--color-gradient-b) 40%, var(--color-gradient-a));
+  color: var(--color-show-white);
+}
+.round:hover {
+  filter: brightness(115%);
+}
+.round .buttonContent {
+  background: linear-gradient(0deg, var(--color-gradient-a) 40%, var(--color-gradient-b));
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Classes for .size property */
@@ -62,7 +84,6 @@
 }
 
 /* Desktop screens */
-/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
 @media screen and (min-width: 800px) {
   .medium.button {
     padding: 0.188rem; /* 3px */
@@ -78,5 +99,10 @@
   .large .buttonContent {
     font-size: 1.75rem;
     padding: 1.25rem 2rem;
+  }
+
+  .round .buttonContent {
+    width: 7rem;
+    height: 7rem;
   }
 }
