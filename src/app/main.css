@@ -48,11 +48,6 @@ body {
   width: 100%;
 }
 
-/* .content {
-  margin: 0 auto;
-  max-width: var(--content-max-width);
-} */
-
 /* Desktop Screens */
 @media screen and (min-width: 800px) {
   :root {
