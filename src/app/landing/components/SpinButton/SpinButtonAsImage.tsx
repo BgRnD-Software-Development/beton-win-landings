@@ -7,7 +7,8 @@ interface Props {
 }
 
 const SpinButtonAsImage: FunctionComponent<Props> = ({ onClick }) => {
-  return <img className={styles.button} src={svgSpinButton.src} onClick={onClick} />;
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img alt="Spin Button" className={styles.button} src={svgSpinButton.src} onClick={onClick} />;
 };
 
 export default SpinButtonAsImage;

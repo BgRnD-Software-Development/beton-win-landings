@@ -1,5 +1,5 @@
 'use client';
-import { FunctionComponent, PropsWithChildren, use, useEffect, useState } from 'react';
+import { FunctionComponent, PropsWithChildren, useEffect, useState } from 'react';
 import styles from './Modal.module.css';
 
 interface Props extends PropsWithChildren {

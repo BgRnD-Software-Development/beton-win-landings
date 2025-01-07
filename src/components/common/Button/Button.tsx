@@ -45,7 +45,7 @@ const Button: FunctionComponent<ButtonProps> = ({
 
   const classToRender = useMemo(
     () => [styles.button, styles[size], styles[variant], className].filter(Boolean).join(' '),
-    [className, variant]
+    [className, size, variant]
   );
 
   const buttonContent = useMemo(() => {
@@ -58,7 +58,7 @@ const Button: FunctionComponent<ButtonProps> = ({
     // }
 
     return <div className={styles.buttonContent}>{children}</div>;
-  }, [children, size]);
+  }, [children]);
 
   // Render as <a> tag if .href is provided, but only if button is not disabled
   if (href && !disabled) {

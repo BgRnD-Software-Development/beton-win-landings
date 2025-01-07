@@ -1,6 +1,5 @@
 import { APP_NAME, PUBLIC_URL } from '@/config';
 import { Wrapper } from '@/components';
-import BlockSocialMedia from './BlockSocialMedia';
 import BlockContactForm from './BlockContactForm';
 
 /**
