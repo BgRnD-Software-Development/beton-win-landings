@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { Button, Stack } from '@/components';
-import FullScreenModal from '../landing/components/ModalResult/FullScreenModal';
-import SpinResultNoBonus from '../landing/components/ModalResult/SpinResultNoBonus';
-import SpinResultWin from '../landing/components/ModalResult/SpinResultWin';
+import FullScreenModal from '../landing/components/modals/FullScreenModal';
+import SpinResultNoBonus from '../landing/components/modals/SpinResultNoBonus';
+import SpinResultWin from '../landing/components/modals/SpinResultWin';
 
 const ModalDemo = () => {
   const [isNoBonusModalOpen, setIsNoBonusModalOpen] = useState(false);

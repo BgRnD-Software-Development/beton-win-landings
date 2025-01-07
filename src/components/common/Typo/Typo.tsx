@@ -17,6 +17,7 @@ export interface TypoProps extends PropsWithChildren<HTMLAttributes<HTMLElement>
   color?: TypoColor | string;
   font?: TypoFont;
   htmlTag?: keyof JSX.IntrinsicElements;
+  noWrap?: boolean;
   size?: TypoSize | string;
   underline?: boolean;
   uppercase?: boolean;
@@ -31,6 +32,7 @@ export interface TypoProps extends PropsWithChildren<HTMLAttributes<HTMLElement>
  * @param {TypoColor} [color] - color to render, defaults to 'dark'
  * @param {TypoFont} [font] - font to render, defaults to 'prompt'
  * @param {string} [htmlTag] - HTML tag to render, defaults to 'span'
+ * @param {boolean} [noWrap] - whether to render noWrap text or not
  * @param {TypoSize} [size] - size of the text, defaults to 'medium'
  * @param {boolean} [underline] - whether to render underline text or not
  * @param {boolean} [uppercase] - whether to render uppercase text or not
@@ -43,6 +45,7 @@ const Typo: FunctionComponent<TypoProps> = ({
   className,
   color = 'white',
   font = 'prompt',
+  noWrap,
   size = 'medium',
   style,
   htmlTag = 'span',
@@ -59,6 +62,7 @@ const Typo: FunctionComponent<TypoProps> = ({
       styles[align],
       bold && styles.bold,
       capitalize && styles.capitalize,
+      noWrap && styles.noWrap,
       underline && styles.underline,
       uppercase && styles.uppercase,
       className, // Custom class must be the last one

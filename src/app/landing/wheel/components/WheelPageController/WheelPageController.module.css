@@ -1,0 +1,58 @@
+/* Mobile Composition */
+
+.mobile {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+}
+
+.mobile .promo {
+  max-width: 15rem;
+}
+
+.mobile .wheel {
+  position: relative;
+  height: 420px;
+}
+
+.mobile .attempts {
+  position: relative;
+  top: -8rem;
+  left: -4rem;
+}
+
+/* Desktop Composition */
+.desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desktop .wheel {
+  flex-grow: 1;
+  /* min-height: 808px; */
+}
+
+.desktop .promo {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-content: center;
+
+  gap: 4rem;
+
+  width: 320px;
+  min-height: 480px;
+}
+
+/* Desktop screens */
+/* @media screen and (min-width: 1280) {
+  .desktop .promo {
+    min-height: 640px;
+  }
+} */

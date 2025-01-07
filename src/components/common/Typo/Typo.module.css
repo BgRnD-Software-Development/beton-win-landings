@@ -46,6 +46,10 @@
   text-transform: uppercase;
 }
 
+.noWrap {
+  white-space: nowrap;
+}
+
 /* Colors */
 
 .white {

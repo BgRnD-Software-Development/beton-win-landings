@@ -1,6 +1,4 @@
 .wrapper {
-  /* border: 1px dotted yellow; */
-
   --spin-button-size: 4rem;
   --wheel-size: 300px;
   --wheel-frame-offset: 20px;
@@ -11,7 +9,7 @@
 
   left: calc(50% - (var(--wheel-size) + 2 * var(--wheel-frame-offset)) / 2);
   width: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset));
-  height: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset) + 128px);
+  height: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset) + 80px);
 
   padding-top: calc(var(--wheel-frame-offset) - 2px);
   padding-left: var(--wheel-frame-offset);
@@ -83,9 +81,28 @@
   }
 }
 
-/* Desktop screens */
+/* Tablet screens */
 /* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
 @media screen and (min-width: 800px) {
+  .wrapper {
+    --spin-button-size: 6rem;
+    --wheel-size: 450px;
+    --wheel-frame-offset: 30px;
+
+    padding-top: calc(var(--wheel-frame-offset) - 3px);
+    background-size: cover;
+
+    height: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset) + 96px);
+  }
+
+  .marker {
+    --marker-size: 2rem;
+    top: 3rem;
+  }
+}
+
+/* Desktop screens */
+@media screen and (min-width: 1080px) {
   .wrapper {
     --spin-button-size: 8rem;
     --wheel-size: 600px;
@@ -93,15 +110,12 @@
 
     padding-top: calc(var(--wheel-frame-offset) - 4px);
     background-size: cover;
+
+    height: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset) + 112px);
   }
 
   .marker {
     --marker-size: 3rem;
     top: 4rem;
-  }
-
-  .wheel {
-    width: var(--wheel-size);
-    height: var(--wheel-size);
   }
 }
