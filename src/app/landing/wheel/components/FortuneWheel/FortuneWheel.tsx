@@ -1,6 +1,6 @@
 'use client';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
-import SpinButton from '../../../components/SpinButton';
+import { SpinButton } from '../../../components';
 import styles from './FortuneWheel.module.css';
 
 const SPIN_DURATION_IN_SECONDS = 5;
