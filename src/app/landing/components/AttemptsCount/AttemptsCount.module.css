@@ -39,7 +39,7 @@
   color: var(--color-dark-text);
 }
 
-/* Variants for Desktop Screen */
+/* Desktop Screens */
 @media screen and (min-width: 800px) {
   .default {
     gap: 1rem;

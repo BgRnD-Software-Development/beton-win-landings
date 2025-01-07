@@ -53,7 +53,7 @@ body {
   max-width: var(--content-max-width);
 } */
 
-/* Desktop Screen */
+/* Desktop Screens */
 @media screen and (min-width: 800px) {
   :root {
     --footer-min-height: 6rem; /* Height on Desktop devices */
