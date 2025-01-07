@@ -85,7 +85,6 @@
 }
 
 /* Desktop screens */
-/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
 @media screen and (min-width: 800px) {
   .medium.button {
     padding: 0.188rem; /* 3px */

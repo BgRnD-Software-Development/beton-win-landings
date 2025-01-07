@@ -82,7 +82,6 @@
 }
 
 /* Tablet screens */
-/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
 @media screen and (min-width: 800px) {
   .wrapper {
     --spin-button-size: 6rem;

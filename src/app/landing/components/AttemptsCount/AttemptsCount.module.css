@@ -40,7 +40,6 @@
 }
 
 /* Variants for Desktop Screen */
-/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
 @media screen and (min-width: 800px) {
   .default {
     gap: 1rem;

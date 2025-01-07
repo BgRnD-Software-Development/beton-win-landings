@@ -76,8 +76,7 @@
   font-size: 1.875rem; /* 30px */
 }
 
-/* Variants for Desktop Screen */
-/* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
+/* Desktop Screens */
 @media screen and (min-width: 800px) {
   .small {
     font-size: 1.875rem; /* 30px */
