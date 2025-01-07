@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
-import styles from './SpinButton.module.css';
 import svgSpinButton from './spin-button.svg';
+import styles from './SpinButton.module.css';
 
 interface Props {
   onClick: (event: unknown) => void;
