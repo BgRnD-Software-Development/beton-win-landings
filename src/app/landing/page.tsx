@@ -1,3 +1,4 @@
+import { APP_NAME, PUBLIC_URL } from '@/config';
 import { Link, Stack, Typo, Wrapper } from '@/components';
 
 const ListOfLandingsPage = () => {
@@ -25,6 +26,16 @@ const ListOfLandingsPage = () => {
       </Stack>
     </Wrapper>
   );
+};
+
+/**
+ * MetaData for the page
+ */
+export const metadata = {
+  title: `Landing Pages - ${APP_NAME}`,
+  alternates: {
+    canonical: `${PUBLIC_URL}/landing/`,
+  },
 };
 
 export default ListOfLandingsPage;

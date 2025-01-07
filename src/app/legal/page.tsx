@@ -6,7 +6,7 @@ import { Link, Typo, Wrapper } from '@/components';
  */
 const LegalPage = () => {
   return (
-    <Wrapper htmlTag="article">
+    <Wrapper htmlTag="article" fullHeight>
       <Typo htmlTag="h1" size="large">
         Legal Documents
       </Typo>

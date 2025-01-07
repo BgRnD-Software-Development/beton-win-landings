@@ -19,6 +19,22 @@ const SitemapPage = async () => {
           <li>
             <Link href="/">Home</Link>
           </li>
+
+          <li>
+            <Link href="/landing/">Landing Pages</Link>
+            <ul>
+              <li>
+                <Link href="/landing/wheel/">Fortune Wheel</Link>
+              </li>
+              <li>
+                <Link href="/landing/slots/">Slots Machine</Link>
+              </li>
+              <li>
+                <Link href="/landing/roulette/">Cassino Roulette</Link>
+              </li>
+            </ul>
+          </li>
+
           <li>
             <Link href="/legal/">Legal</Link>
             <ul>
@@ -30,11 +46,13 @@ const SitemapPage = async () => {
               </li>
             </ul>
           </li>
-          <li>
-            <Link href="/sitemap/">Sitemap</Link>
-          </li>
+
           <li>
             <Link href="/contact/">Contact</Link>
+          </li>
+
+          <li>
+            <Link href="/sitemap/">Sitemap</Link>
           </li>
         </Typo>
         <Typo size="small">Other pages are generated dynamically and may not be listed here.</Typo>
