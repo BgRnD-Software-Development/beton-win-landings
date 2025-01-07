@@ -1,4 +1,6 @@
 .wrapper {
+  /* border: 1px dotted yellow; */
+
   --spin-button-size: 4rem;
   --wheel-size: 300px;
   --wheel-frame-offset: 20px;
@@ -7,8 +9,10 @@
   position: relative;
   overflow: hidden;
 
+  left: calc(50% - (var(--wheel-size) + 2 * var(--wheel-frame-offset)) / 2);
   width: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset));
   height: calc(var(--wheel-size) + 2 * var(--wheel-frame-offset) + 128px);
+
   padding-top: calc(var(--wheel-frame-offset) - 2px);
   padding-left: var(--wheel-frame-offset);
   padding-right: var(--wheel-frame-offset);

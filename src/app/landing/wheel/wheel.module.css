@@ -5,6 +5,17 @@
   background-repeat: no-repeat;
 }
 
+.wheelContainerMobile {
+  position: relative;
+  height: 420px;
+}
+
+.attemptsCountMobile {
+  position: relative;
+  top: -8rem;
+  left: -4rem;
+}
+
 /* Variants for Desktop Screen */
 /* TODO: Sync min-width constrain with MOBILE_SCREEN_MAX_WIDTH value */
 @media screen and (min-width: 800px) {

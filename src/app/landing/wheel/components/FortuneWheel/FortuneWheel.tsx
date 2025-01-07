@@ -20,7 +20,7 @@ const FortuneWheel: FunctionComponent<Props> = ({ remainingSpins, onSpinEnd }) =
   const [isSpinning, setIsSpinning] = useState(false);
   const timeoutId = useRef<NodeJS.Timeout | undefined>(undefined);
 
-  const isWinner = remainingSpins <= 0;
+  const isWinner = remainingSpins <= 1;
 
   const wheelClassName = [
     styles.wheel,
