@@ -1,4 +1,4 @@
-import { FunctionComponent, HTMLAttributes, createElement } from 'react';
+import { FunctionComponent, HTMLAttributes, JSX, createElement } from 'react';
 
 interface Props extends HTMLAttributes<HTMLElement> {
   tag: keyof JSX.IntrinsicElements;

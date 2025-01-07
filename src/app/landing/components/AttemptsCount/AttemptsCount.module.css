@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  color: var(--color-snow-white);
+  text-align: right;
+  /* Same as Typo small */
+  font-size: 1rem; /* 16px */
+}
+
+.count {
+  color: var(--color-aureolin);
+  font-size: 2.5rem;
+}
+
+/* Variants */
+
+.default {
+  gap: 0.5rem;
+}
+
+.white {
+  gap: 0.5rem;
+  background-image: url('white-plate.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.white .label {
+  color: var(--color-dark-text);
+}
+
+.white .count {
+  color: var(--color-dark-text);
+}
+
+/* Desktop Screens */
+@media screen and (min-width: 800px) {
+  .default {
+    gap: 1rem;
+  }
+
+  .white {
+    gap: 1rem;
+  }
+
+  .label {
+    /* Same as Typo medium */
+    font-size: 2.25rem; /* 36px */
+  }
+
+  .count {
+    font-size: 6rem;
+  }
+}

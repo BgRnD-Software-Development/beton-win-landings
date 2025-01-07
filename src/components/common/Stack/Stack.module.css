@@ -22,3 +22,11 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.fullHeight {
+  height: 100%;
+}
+
+.fullWidth {
+  width: 100%;
+}

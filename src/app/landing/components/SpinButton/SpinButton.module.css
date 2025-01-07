@@ -1,0 +1,15 @@
+.button {
+  position: absolute;
+  margin: 0;
+
+  top: calc(var(--wheel-size) / 2 + var(--wheel-frame-offset) - var(--spin-button-size) / 2);
+  left: calc(50% - var(--spin-button-size) / 2);
+  width: var(--spin-button-size);
+  height: var(--spin-button-size);
+}
+
+.button:hover {
+  cursor: pointer;
+  filter: brightness(115%);
+  transition: all 0.3s;
+}
