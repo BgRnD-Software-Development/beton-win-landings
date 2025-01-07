@@ -1,4 +1,4 @@
-import { Button } from '../../../../components';
+import { Button } from '@/components';
 import styles from './SpinButton.module.css';
 
 const SpinButtonAsButton: typeof Button = ({ onClick }) => {
