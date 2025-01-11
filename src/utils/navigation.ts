@@ -1,3 +1,4 @@
+import { REGISTRATION_URL } from '@/config';
 import { IS_BROWSER } from './environment';
 
 export const EXTERNAL_LINK_PROPS = {
@@ -53,3 +54,12 @@ export function scrollIntoViewAdjusted(
   const elementToScroll = scrollingElement ?? window;
   elementToScroll.scrollBy({ top, behavior });
 }
+
+/**
+ * Opens registration page with optional query parameters *
+ */
+export const onRegisterButtonClick = () => {
+  const searchParams = window.location.search;
+  const urlToOpen = `${REGISTRATION_URL}${Boolean(searchParams) ? searchParams : ''}`;
+  window.location.href = urlToOpen; // TODO: Do we need disable back navigation here?
+};

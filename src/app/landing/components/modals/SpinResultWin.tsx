@@ -1,15 +1,12 @@
+'use client';
 import { Button, Stack, Typo } from '@/components';
+import { onRegisterButtonClick } from '@/utils/navigation';
 
 /**
  * Renders content of "Winning Spin Result"
  * @component SpinResultWin
  */
 const SpinResultWin = () => {
-  const onButtonClick = () => {
-    // TODO: Implement redirect to the "Deposit" page
-    alert('Redirect to the "Deposit" page');
-  };
-
   return (
     <Stack alignItems="center">
       <Typo color="yellow" size="medium">
@@ -30,7 +27,7 @@ const SpinResultWin = () => {
       <Typo color="white" size="large">
         +600 GG
       </Typo>
-      <Button onClick={onButtonClick}>obtener mis premios</Button>
+      <Button onClick={onRegisterButtonClick}>obtener mis premios</Button>
     </Stack>
   );
 };
