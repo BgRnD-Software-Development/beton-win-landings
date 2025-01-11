@@ -1,6 +1,8 @@
 'use client';
 import { Button, Logo, Stack } from '@/components';
 import { useIsMobile } from '@/hooks';
+import { disableBackNavigation, onRegisterButtonClick } from '@/utils/navigation';
+import { useEffect } from 'react';
 
 const LogoAndRegisterButton = () => {
   const isMobile = useIsMobile();
@@ -8,9 +10,10 @@ const LogoAndRegisterButton = () => {
   const justifyContent = isMobile ? 'center' : 'space-between';
   const padding = isMobile ? '1rem 0' : '2rem 0';
 
-  const onRegisterButtonClick = () => {
-    alert('Register button clicked');
-  };
+  // Disable any back navigation from Landing pages
+  useEffect(() => {
+    disableBackNavigation();
+  }, []);
 
   return (
     <Stack alignItems="center" direction="row" gap="0.5rem" justifyContent={justifyContent} padding={padding}>
